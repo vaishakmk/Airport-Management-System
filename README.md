@@ -12,7 +12,7 @@
 - Frontend: ReactJS, BootStrap
 - Backend: NodeJS
 - Cloud: Amazon Web Services (EC2 Cluster)
-- Database: MongoDB
+- Database: MySQL
 
 # Scrum meetings schedule:
 Every Friday
