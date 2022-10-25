@@ -6,14 +6,14 @@ DROP TABLE passengers;
 CREATE TABLE passengers  (passenger_id INTEGER NOT NULL, 
 						passenger_name VARCHAR(20) NOT NULL,
 						passenger_email VARCHAR(20) NOT NULL,
-						phone INTEGER NOT NULL,
+						phone CHAR(10) NOT NULL,
 						PRIMARY KEY (passenger_id));
   
   
 CREATE TABLE airport_employee  (airport_empid INTEGER NOT NULL, 
 								airport_empname VARCHAR(20) NOT NULL,
 								airport_empemail VARCHAR(20) NOT NULL,
-								phone INTEGER NOT NULL,
+								phone CHAR(10) NOT NULL,
 								PRIMARY KEY (airport_empid));
                         
 CREATE TABLE airlines ( airline_id VARCHAR(5) NOT NULL,
@@ -26,7 +26,7 @@ CREATE TABLE airline_employee  (airline_empid INTEGER NOT NULL,
 								airline_idref VARCHAR(5) NOT NULL,
                                 airline_empname VARCHAR(20) NOT NULL,
 								airline_empemail VARCHAR(20) NOT NULL,
-								phone INTEGER NOT NULL,
+								phone CHAR(10) NOT NULL,
 								PRIMARY KEY (airline_empid,airline_idref),
                                 FOREIGN KEY (airline_idref) REFERENCES airlines(airline_id));
                         
