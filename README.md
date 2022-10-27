@@ -15,7 +15,7 @@
 - Database: MySQL
 
 # Scrum meetings schedule:
-Every Friday
+Every Monday
 
 # Task Allocation:
 - Frontend: Divija
@@ -23,3 +23,5 @@ Every Friday
 - Database: Prerna, Akshara
 - Deployment: TBD
 
+# Sprint Task Sheet:
+https://docs.google.com/spreadsheets/d/1AxkQ2meuDWeRD4gkbFXwkRuPzay7Yd-g6rpFt1d4OjM/edit?usp=sharing
