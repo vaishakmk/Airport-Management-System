@@ -28,4 +28,5 @@ https://docs.google.com/spreadsheets/d/1AxkQ2meuDWeRD4gkbFXwkRuPzay7Yd-g6rpFt1d4
 
 # XP Core Values :
 **Communication** : We are conduting regular meetings every week on a Zoom call to discuss the crucial aspects of the project by collaborating and communicating with each other.
+
 **Feedback** : Team members are delivering the assigned work frequently and getting feedback about it. We are refractoring the code to make improvements and fixing the bugs.
