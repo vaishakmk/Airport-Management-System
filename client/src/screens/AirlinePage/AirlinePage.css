@@ -1,0 +1,14 @@
+.airline-employee {
+    min-height: 93vh;
+    display: flex;
+    /* align-items: center; */
+    background-image: url("https://i.pinimg.com/originals/d6/d1/e0/d6d1e0bbdd2eda8f44a2125154670e82.gif");
+    background-position: center;
+    background-size: cover;
+    padding-top: 5%;
+}
+
+.intro-text {
+    width: 100%;
+    text-align: center;
+}
