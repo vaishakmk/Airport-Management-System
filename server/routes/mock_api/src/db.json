@@ -1,0 +1,70 @@
+{
+  "flights": [
+    {
+      "id": 0,
+      "flight_num": "UA1234",
+      "airline_name": "United",
+      "start": "SFO",
+      "destination": "SJC",
+      "arr_dep": "arrival",
+      "gate": 4,
+      "timing": 1600,
+      "baggage": 2
+    },
+    {
+      "id": 1,
+      "flight_num": "DL1234",
+      "airline_name": "Delta",
+      "start": "SJC",
+      "destination": "SFO",
+      "arr_dep": "departure",
+      "gate": 16,
+      "timing": 1800
+    },
+    {
+      "flight_num": "UA9513",
+      "airline_name": "United",
+      "destination": "SJC",
+      "start": "SFO",
+      "arr_dep": "arrival",
+      "timing": "1600",
+      "id": 2
+    },
+    {
+      "flight_num": "UA8800",
+      "airline_name": "United",
+      "destination": "LAX",
+      "start": "SJC",
+      "arr_dep": "departure",
+      "timing": "1900",
+      "id": 3
+    },
+    {
+      "flight_num": "UA4321",
+      "airline_name": "United",
+      "destination": "SJC",
+      "start": "JFK",
+      "arr_dep": "arrival",
+      "timing": "1545",
+      "id": 4
+    },
+    {
+      "flight_num": "UA9515",
+      "airline_name": "United",
+      "destination": "HVA",
+      "start": "SJC",
+      "arr_dep": "departure",
+      "timing": "1945",
+      "id": 5
+    },
+    {
+      "flight_num": "UA8801",
+      "airline_name": "asd",
+      "destination": "HVA",
+      "start": "SJC",
+      "arr_dep": "departure",
+      "timing": "1111",
+      "id": 6
+    }
+  ]
+}

@@ -1,3 +1,27 @@
+# Spoofing Data for Local Debugging
+
+## Install json-server
+
+Run npm install -g json-server
+
+## Modify Local DB as needed
+
+Navigate to ../server/routes/mock_api/src
+
+Modify db.json as necessary. Note that top level keys will map to RESTful end points
+
+## Run Local Instance of json-server
+
+Execute json-server --watch db.json --port 4000
+
+You should now be able to access mock data via:
+
+http://localhost:4000/<top-level-key>/
+
+Based on the provided db.json, a couple of examples are:
+http://localhost:4000/flights/ (returns are flights in the db)
+http://localhost:4000/flights/1 (returns the flight with id 2)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

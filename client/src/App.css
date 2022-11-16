@@ -1,16 +1,9 @@
-
-
-.App-logo {
-  height: 100%;
-  
-  background-Size: 'cover';
-  background-Repeat: 'no-repeat';
+.App {
+    padding: 0;
 }
 
-
-
-
-
-
-
-
+.App-logo {
+    height: 100%;
+    background-Size: 'cover';
+    background-Repeat: 'no-repeat';
+}

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Container, Row, Button } from 'react-bootstrap';
+import StaticTable from '../../components/StaticTable/StaticTable';
 import { Link } from 'react-router-dom';
 
 import "./LandingPage.css";
@@ -30,6 +31,8 @@ const LandingPage = () => {
 
 
                       </div>
+
+                      <StaticTable inventory_api_url="http://localhost:4000/flights" />
 
                       
 
