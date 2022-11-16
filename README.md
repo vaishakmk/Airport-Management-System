@@ -9,13 +9,13 @@
 - Vaishak Melarcode Kallampad
 
 # Tools:
-- Frontend: ReactJS, BootStrap
+- Frontend: ReactJS, NodeJS, BootStrap
 - Backend: NodeJS
 - Cloud: Amazon Web Services (EC2 Cluster)
-- Database: MySQL
+- Database: MongoDB
 
 # Scrum meetings schedule:
-Every Monday
+Every Monday and Thursday
 
 # Task Allocation:
 - Frontend: Divija
