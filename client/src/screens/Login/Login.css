@@ -1,0 +1,42 @@
+.main {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+    
+  }
+  
+  .logininformation{
+    display: flex;
+    width: 1450px;
+    height: 700px;
+    flex-direction: column;
+    padding: 60px 0;
+    align-items: center;
+    background-image: url("https://cdn-cipak.nitrocdn.com/pwvDKirvFjozvJSRiAFrxtGhrBfsgugn/assets/static/optimized/rev-778d327/wp-content/uploads/2020/03/The-Best-Online-Flight-Search-Websites-1.jpg");
+  }
+  
+  .header {
+    padding: 5px;
+    text-align: center;
+    font-style: oblique;
+    font-size: 18px;
+  }
+  
+  .logininformation input{
+    width: 300px;
+    height: 25px;
+    margin: 5px;
+  }
+  
+  .logininformation button{
+  
+    width: 150px;
+    height: 20px;
+    margin-top: 15px;
+  }
+  
+  .logininformation button:hover{
+    cursor: pointer;
+  }
