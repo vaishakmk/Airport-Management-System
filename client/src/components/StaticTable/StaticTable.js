@@ -6,7 +6,7 @@ function StaticTable({ inventory_api_url }) {
 
     // GET request function to your Mock API
     const fetchInventory = () => {
-        fetch(`${inventory_api_url}`)
+        fetch("http://localhost:5001/flights")
             .then(res => res.json())
             .then(json => setData(json));
         /*
@@ -25,7 +25,7 @@ function StaticTable({ inventory_api_url }) {
             <table className="fl-table">
                 <thead>
                     <tr>
-                        <th>Flight ID</th>
+                        
                         <th>Flight Number</th>
                         <th>Airline</th>
                         <th>Source</th>
@@ -40,9 +40,9 @@ function StaticTable({ inventory_api_url }) {
                     {
                         data.map((item) => (
                             <tr key={item.id}>
-                                <td>{item.fid}</td>
+                                
                                 <td>{item.flight_num}</td>
-                                <td>{item.airline_name}</td>
+                                <td>{item.airline}</td>
                                 <td>{item.start}</td>
                                 <td>{item.destination}</td>
                                 <td>{item.arr_dep}</td>

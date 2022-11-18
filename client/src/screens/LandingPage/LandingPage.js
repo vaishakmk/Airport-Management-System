@@ -32,7 +32,7 @@ const LandingPage = () => {
 
                       </div>
 
-                      <StaticTable inventory_api_url="http://localhost:4000/flights" />
+                      
 
                       
 
