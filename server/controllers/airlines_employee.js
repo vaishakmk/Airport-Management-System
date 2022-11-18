@@ -1,112 +1,77 @@
-let AirlineEmployees = require('../models/airline_employee.model');
-const mongoose = require('mongoose');
-const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
+let Flights = require('../models/flights.model');
 
 
 
-exports.signup_page = (req,res )=>{
-    AirlineEmployees.find({email:req.body.email})
-        .exec()
-        .then(airline_employees => {
-            if(airline_employees.length>=1){
-                res.status(409).json({"message":"User exists. Try another username"});
-            }else{
-                bcrypt.hash(req.body.password,10,(err,hash)=>{
-                    if(err) {
-                        return res.status(500).json({
-                            error:err
-                        });
-                    }else{
-                        const airlineemployee = new AirlineEmployees({
-                            aeid : new mongoose.Types.ObjectId(),
-                            airline: req.body.airline,
-                            empname :req.body.empname,
-                            email: req.body.email,
-                            phone : req.body.phone,
-                            password : hash
-                        });
-                        airlineemployee
-                            .save()
-                            .then(result=>{
-                                console.log(result);
-                                res.status(200).json({
-                                    message : "Airline Employee added"
-                                });
-                            })
-                            .catch(err =>{
-                                console.log(err);
-                                res.status(500).json({
-                                    error : err
-                                });
-                            }); 
-                    }
-                })
-            }
-        });
+exports.airline_flights = (req, res) => {
+    Flights.find({airline:req.params.airline})
+    .then(flight => res.json(flight))
+    .catch(err => res.status(400).json('Error: ' + err));
 };
 
-
-
-exports.get_employees = (req, res) => {
-    AirlineEmployees.find()
-    .then(airline_employee => res.json(airline_employee))
+exports.add_flights = (req, res) => {
+    const flight_num = req.body.flight_num;
+    const airline = req.body.airline;
+    const start = req.body.start
+    const destination = req.body.destination;
+    let arr_dep = ''
+    if(start === 'San Jose'){
+      arr_dep = 'departure';
+    }
+    else{
+      arr_dep = 'arrival'
+    }
+  
+    const stringtime = req.body.flighttime;
+    const hours = parseInt(stringtime.slice(0, 2));
+    const minutes = parseInt(stringtime.slice(3));
+  
+    const flighttime = hours*60+minutes; 
+  
+    const newFlight = new Flights({
+      flight_num,
+      airline,
+      start,
+      destination,
+      arr_dep,
+      flighttime
+    });
+  
+    newFlight.save()
+    .then(() => res.json('Flight added!'))
     .catch(err => res.status(400).json('Error: ' + err));
-}; 
-
-
-
-exports.login = (req,res,next)=>{
-    AirlineEmployees.find({email : req.body.email})
-        .exec()
-        .then(airlineemployee => {
-            if(airlineemployee.length <1){
-                return  res.status(401).json({
-                    message : "Auth Failed"
-                });
-            }
-            bcrypt.compare(req.body.password,airlineemployee[0].password,(err,result)=>{
-                if (err){
-                    return res.status(401).json({message:"Auth Failed"});
-                }
-                if (result){
-                    const token = jwt.sign({
-                        email : airlineemployee[0].email,
-                        aeid : airlineemployee[0].aeid
-
-                    },
-                    process.env.JWT_KEY,
-                    {
-                        expiresIn : '1h'
-                    });
-                    return res.status(200).json({
-                        message:"Auth Successful",
-                        token : token});
-                }
-                res.status(401).json({message:"Auth Failed"});
-            });
-        })
-        .catch(err => {
-            console.log(err);
-            res.status(500).json({
-                error:err
-            });
-        });
   };
 
 
-exports.delete_employee = (req, res) => {
-    AirlineEmployees.deleteOne({ aeid: req.params.aeid })
-    .exec()
-    .then(result => {
-      res.status(200).json({
-        message: "Airline employee removed"
-      });
+
+  exports.update_flight = (req, res) => {
+    let curr_time = new Date().toLocaleTimeString('en-US', { hour12: false, 
+        hour: "numeric", 
+        minute: "numeric"});
+    console.log(curr_time);
+    let curr_hours = parseInt(curr_time.slice(0, 2));
+    let curr_minutes = parseInt(curr_time.slice(3));
+    curr_minutes = curr_hours*60 + curr_minutes ;
+
+    Flights.findById(req.params.fid)
+    .then(flight => {
+        const stringtime = req.body.flighttime;
+        let hours = parseInt(stringtime.slice(0, 2));
+        let minutes = parseInt(stringtime.slice(3));
+        const flighttime = hours*60+minutes; 
+        console.log(flight.flighttime-curr_minutes);
+        if((flight.flighttime-curr_minutes)>30){
+            flight.flighttime = flighttime;
+            flight.save()
+              .then(() => res.json('Flight time updated!'))
+              .catch(err => res.status(400).json('Error: ' + err));
+            return;
+        }else{
+            res.status(400).json({
+                error : 'You cannot change the schedulw within 30mins of take-off'
+            });
+            return;
+        }
+
     })
-    .catch(err => {
-      console.log(err);
-      res.status(500).json({
-        error: err
-      });
-    });
+    .catch(err => res.status(400).json('Error: ' + err));
 };

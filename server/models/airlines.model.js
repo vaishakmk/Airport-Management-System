@@ -5,6 +5,7 @@ const Schema = mongoose.Schema;
 const airlineSchema = new Schema({
     aid: Schema.Types.ObjectId,
     airline_name: { type: String, unique: true, required: true , minLength:3},
+    airline_domain : {type : String, unique: true, required: true , minLength:3}
   }, {
     timestamps: true,
   });

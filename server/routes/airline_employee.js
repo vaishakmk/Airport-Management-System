@@ -1,14 +1,18 @@
 const router = require('express').Router();
+const checkAuth = require('../middleware/check-auth');
 
 let AirlineEmployeeController = require('../controllers/airlines_employee');
 
-router.post("/signup",AirlineEmployeeController.signup_page);
 
-router.get('/',AirlineEmployeeController.get_employees);
+router.get('/flights/:airline',AirlineEmployeeController.airline_flights);
 
-router.post('/login', AirlineEmployeeController.login);
+router.post('/add_flights',checkAuth, AirlineEmployeeController.add_flights);
 
-router.delete('/:aeid',AirlineEmployeeController.delete_employee);
+router.post('/update_flights/:fid',checkAuth,AirlineEmployeeController.update_flight);
+
+// router.post('/update_flights', AirlineEmployeeController.update_flights);
+
+// router.delete('/:uid',AirlineEmployeeController.delete_employee);
 
 
 module.exports = router;
