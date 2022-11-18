@@ -32,10 +32,14 @@ db.once("open", function () {
 const airlinesRoutes = require('./routes/airlines');
 const flightsRoutes = require('./routes/flights');
 const airline_employeeRoutes = require('./routes/airline_employee');
+const userRoutes = require('./routes/users');
+
+
 
 app.use('/airlines', airlinesRoutes);
 app.use('/flights',flightsRoutes);
 app.use('/airline_employee',airline_employeeRoutes);
+app.use('/',userRoutes);
 
 
 
