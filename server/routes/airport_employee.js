@@ -3,9 +3,9 @@ const router = require('express').Router();
 const AirportEmployeeController = require('../controllers/airport_employee');
 const checkAuth = require('../middleware/check-auth');
 
-// router.get('/get_gates',checkAuth,AirportEmployeeController.get_gates);
+router.get('/get_gates',checkAuth,AirportEmployeeController.get_gates);
 
-// router.post('/add',checkAuth,AirlinesController.add_airlines);
+router.post('/set_gates',checkAuth,AirportEmployeeController.set_gates);
 
 
 // router.delete('/:aid',checkAuth,AirlinesController.delete_airlines);
