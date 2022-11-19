@@ -33,12 +33,17 @@ const airlinesRoutes = require('./routes/airlines');
 const flightsRoutes = require('./routes/flights');
 const airline_employeeRoutes = require('./routes/airline_employee');
 const userRoutes = require('./routes/users');
+const airport_employeeRoutes = require('./routes/airport_employee');
+const gateRoutes = require('./routes/gates');
 
 
 
 app.use('/airlines', airlinesRoutes);
 app.use('/flights',flightsRoutes);
 app.use('/airline_employee',airline_employeeRoutes);
+app.use('/airport_employee',airport_employeeRoutes);
+app.use('/gates',gateRoutes);
+
 app.use('/',userRoutes);
 
 
