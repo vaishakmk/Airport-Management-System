@@ -63,7 +63,7 @@ function DynamicTable({ inventory_api_url, airline_id }) {
         fetch(`${inventory_api_url}/${id}`, {
             method: "PATCH",
             body: JSON.stringify({
-                "id": id,
+                "_id": id,
                 "flight_num": newFNum,
                 "start": newSource,
                 "destination": newDestination,
@@ -135,11 +135,10 @@ function DynamicTable({ inventory_api_url, airline_id }) {
                 <tbody>
                     {
                         data.map((item) => (
-                            <tr key={item.id}>
-                                <td>{item.id}</td>
+                            <tr key={item._id}>
                                 <td>
                                     {
-                                        inEditMode.status && inEditMode.rowKey === item.id ? (
+                                        inEditMode.status && inEditMode.rowKey === item._id ? (
                                             <input value={flightNum}
                                                 onChange={(event) => setFlightNum(event.target.value)}
                                             />
@@ -148,10 +147,10 @@ function DynamicTable({ inventory_api_url, airline_id }) {
                                         )
                                     }
                                 </td>
-                                <td>{item.airline_name}</td>
+                                <td>{item.airline}</td>
                                 <td>
                                     {
-                                        inEditMode.status && inEditMode.rowKey === item.id ? (
+                                        inEditMode.status && inEditMode.rowKey === item._id ? (
                                             <input value={source}
                                                 onChange={(event) => setSource(event.target.value)}
                                             />
@@ -162,7 +161,7 @@ function DynamicTable({ inventory_api_url, airline_id }) {
                                 </td>
                                 <td>
                                     {
-                                        inEditMode.status && inEditMode.rowKey === item.id ? (
+                                        inEditMode.status && inEditMode.rowKey === item._id ? (
                                             <input value={destination}
                                                 onChange={(event) => setDestination(event.target.value)}
                                             />
@@ -173,7 +172,7 @@ function DynamicTable({ inventory_api_url, airline_id }) {
                                 </td>
                                 <td>
                                     {
-                                        inEditMode.status && inEditMode.rowKey === item.id ? (
+                                        inEditMode.status && inEditMode.rowKey === item._id ? (
                                             <input value={arr_dep}
                                                 onChange={(event) => setArrOrDep(event.target.value)}
                                             />
@@ -185,28 +184,28 @@ function DynamicTable({ inventory_api_url, airline_id }) {
                                 <td>{item.gate}</td>
                                 <td>
                                     {
-                                        inEditMode.status && inEditMode.rowKey === item.id ? (
+                                        inEditMode.status && inEditMode.rowKey === item._id ? (
                                             <input value={flightTime}
                                                 onChange={(event) => setFlightTime(event.target.value)}
                                             />
                                         ) : (
-                                            item.timing
+                                                item.flighttime
                                         )
                                     }
                                 </td>
                                 <td>{item.baggage}</td>
                                 <td>
                                     {
-                                        inEditMode.status && inEditMode.rowKey === item.id ? (
+                                        inEditMode.status && inEditMode.rowKey === item._id ? (
                                             <React.Fragment>
                                                 <button
                                                     className={"btn-success"}
                                                     onClick={() => onSave({
-                                                        id: item.id,
+                                                        _id: item._id,
                                                         currFNum: item.flight_num,
                                                         currSource: item.source,
                                                         currDestination: item.destination,
-                                                        currentTime: item.timing,
+                                                        currentTime: item.flighttime,
                                                         currArrDep: item.arr_dep
                                                     })}
                                                 >
@@ -225,11 +224,11 @@ function DynamicTable({ inventory_api_url, airline_id }) {
                                             <button
                                                 className={"btn-primary"}
                                                     onClick={() => onEdit({
-                                                        id: item.id,
+                                                        _id: item._id,
                                                         currFNum: item.flight_num,
                                                         currSource: item.source,
                                                         currDestination: item.destination,
-                                                        currentTime: item.timing,
+                                                        currentTime: item.flighttime,
                                                         currArrDep: item.arr_dep
                                                     })}
                                             >

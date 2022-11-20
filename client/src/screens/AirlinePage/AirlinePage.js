@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
 import { Container, Row, Button } from 'react-bootstrap';
 import "./AirlinePage.css";
-import LandingPage from '../LandingPage/LandingPage';
 import { useParams } from 'react-router-dom';
 import DynamicTable from '../../components/DynamicTable/DynamicTable';
 import FlightForm from '../../components/FlightForm/FlightForm';
 
 const AirlinePage = () => {
-  const { username } = useParams();
 
   /*
    * Need to add authentication check and re-direct to the Login page
@@ -29,13 +27,13 @@ const AirlinePage = () => {
             <Row>
                 <div className="intro-text">
                     <div className='px-2'>
-                          <h1 >Welcome to San Jose Airport's Airport Employee Page { username }</h1>
+                          <h1 >Welcome to San Jose Airport's Airport Employee Page</h1>
                       </div>
 
                 </div>
               </Row>
-              <FlightForm inventory_api_url="http://localhost:4000/flights" />
-              <DynamicTable inventory_api_url="http://localhost:4000/flights"/>
+              <FlightForm inventory_api_url="http://localhost:5001/flights" />
+              <DynamicTable inventory_api_url="http://localhost:5001/flights"/>
         </Container>
     </div>
   );

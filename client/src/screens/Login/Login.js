@@ -41,7 +41,7 @@ export default function Login(props) {
                     navigate("/register", { replace: true });
                     break;
                 case "airline_employee":
-                    navigate("/register", { replace: true });
+                    navigate("/airline/{data.name}", { replace: true });
                     break;               
             }
 

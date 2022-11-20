@@ -27,15 +27,8 @@ const LandingPage = () => {
                                 Register
                             </Button>
                         </Link>
-
-
-
                       </div>
-
-                      
-
-                      
-
+                      <StaticTable inventory_api_url="http://localhost:5001/flights"/>
                 </div>
 
 

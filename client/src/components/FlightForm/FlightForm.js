@@ -38,7 +38,7 @@ function FlightForm({ inventory_api_url }) {
     }
 
     return (
-        <form class="form-style-9" onSubmit={handleSubmit}>
+        <form className="form-style-9" onSubmit={handleSubmit}>
             <ul>
                 <li>
                     <label>
@@ -47,7 +47,7 @@ function FlightForm({ inventory_api_url }) {
                         name="flight_num"
                         placeholder="Flight ID"
                         onChange={handleChange} 
-                        class="field-style field-split align-left" 
+                        className="field-style field-split align-left" 
                      />
                     </label>
                     <label>
@@ -56,7 +56,7 @@ function FlightForm({ inventory_api_url }) {
                             name="airline_name"
                             placeholder="Airline Name"
                             onChange={handleChange}
-                            class="field-style field-split align-right"
+                            className="field-style field-split align-right"
                         />
                     </label>
                 </li>
@@ -70,7 +70,7 @@ function FlightForm({ inventory_api_url }) {
                             name="start"
                             placeholder="Source Aiport Code"
                             onChange={handleChange}
-                            class="field-style field-split align-left" 
+                            className="field-style field-split align-left" 
                         />
                     </label>
                     <label>
@@ -79,7 +79,7 @@ function FlightForm({ inventory_api_url }) {
                             name="destination"
                             placeholder="Destination Aiport Code"
                             onChange={handleChange}
-                            class="field-style field-split align-right"
+                            className="field-style field-split align-right"
                         />
                     </label>
                 </li>
@@ -92,7 +92,7 @@ function FlightForm({ inventory_api_url }) {
                             name="arr_dep"
                             placeholder="Arrival at or Departure from SJC?"
                             onChange={handleChange}
-                            class="field-style field-split align-left" 
+                            className="field-style field-split align-left" 
                         />
                     </label>
                     <label>
@@ -101,7 +101,7 @@ function FlightForm({ inventory_api_url }) {
                             name="timing"
                             placeholder="Time of arrival at/departure from SJC"
                             onChange={handleChange}
-                            class="field-style field-split align-right"
+                            className="field-style field-split align-right"
                         />
                     </label>
                 </li>
