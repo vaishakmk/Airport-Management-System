@@ -21,7 +21,6 @@ exports.signup_page = (req,res )=>{
                     }else{
                         
                         const user = new Users({
-                            uid : new mongoose.Types.ObjectId(),
                             empname :req.body.empname,
                             email: req.body.email,
                             phone : req.body.phone,
@@ -74,7 +73,7 @@ exports.login = (req,res,next)=>{
                 if (result){
                     const token = jwt.sign({
                         email : user[0].email,
-                        uid : user[0].uid
+                        _id : user[0]._id
                     },
                     process.env.JWT_KEY,
                     {
@@ -118,7 +117,7 @@ exports.login = (req,res,next)=>{
   
 
 exports.delete_employee = (req, res) => {
-    Users.deleteOne({ uid: req.params.uid })
+    Users.deleteOne({ _id: req.params._id })
     .exec()
     .then(result => {
       res.status(200).json({

@@ -11,7 +11,7 @@ exports.get_flights = (req, res) => {
 
 
 exports.delete_flight = (req, res) => {
-    Flights.findByIdAndDelete(req.params.fid)
+    Flights.findByIdAndDelete(req.params._id)
     .then(() => res.json('Flight deleted.'))
     .catch(err => res.status(400).json('Error: ' + err));
 };
