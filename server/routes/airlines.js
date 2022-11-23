@@ -10,6 +10,6 @@ router.post('/add',checkAuth,AirlinesController.add_airlines);
 
 router.delete('/:_id',checkAuth,AirlinesController.delete_airlines);
 
-router.post('/update/:aid',checkAuth,AirlinesController.update_airlines);
+router.post('/update/:_id',checkAuth,AirlinesController.update_airlines);
 
 module.exports = router;
