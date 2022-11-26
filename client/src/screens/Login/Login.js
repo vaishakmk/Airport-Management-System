@@ -27,6 +27,7 @@ export default function Login(props) {
     .then(res => res.json())
     .then(data => {
         console.log(data);
+        console.log(data.airline_name);
         
         if(data.usertype){
             //print user type
@@ -41,7 +42,9 @@ export default function Login(props) {
                     navigate("/register", { replace: true });
                     break;
                 case "airline_employee":
-                    navigate("/register", { replace: true });
+                    var path = `/airline/${data.airline_name}`;
+                    console.log(path)
+                    navigate(path, { replace: true });
                     break;               
             }
 

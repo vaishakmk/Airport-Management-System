@@ -1,17 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import "./DynamicTable.css";
 
-function DynamicTable({ inventory_api_url, airline_id }) {
+function DynamicTable({ inventory_api_url, update_inventory_url, airline_id }) {
     const [data, setData] = useState([]);
 
     // GET request function to Flights table API
     const fetchInventory = () => {
-        // should also filter based on airline_id
         fetch(`${inventory_api_url}`)
             .then(res => res.json())
-            .then(json => setData(json));
+            .then(res => setData(res.filter(function (item) {
+                if (item.airline === airline_id) {
+                    return true; // selecting only those records that belong to this airline
+                }
+                return false;
+            })));
         /*
-         * This should return the set of flights departing or arriving at SJC
+         * Returns the set of flights departing or arriving at SJC, and filters to retain
+         * only those operated by the airline that the current employee belongs to
         */
     }
 
@@ -29,28 +34,18 @@ function DynamicTable({ inventory_api_url, airline_id }) {
         rowKey: null
     });
 
-    const [flightNum, setFlightNum] = useState(null);
-    const [source, setSource] = useState(null);
-    const [destination, setDestination] = useState(null);
-    const [flightTime, setFlightTime] = useState(null);
-    const [arr_dep, setArrOrDep] = useState(null);
-    
-
+    const [flightTime, setFlightTime] = useState(null);    
 
     /**
      *
      * @param id - The id of the flight being edited
      * @param currentTime - The current arrival/departure time for the flight
      */
-    const onEdit = ({ id, currFNum, currSource, currDestination, currentTime, currArrDep }) => {
+    const onEdit = ({ id, currentTime }) => {
         setInEditMode({
             status: true,
             rowKey: id
         });
-        setFlightNum(currFNum);
-        setSource(currSource);
-        setDestination(currDestination);
-        setArrOrDep(currArrDep);
         setFlightTime(currentTime);
     }
 
@@ -59,23 +54,11 @@ function DynamicTable({ inventory_api_url, airline_id }) {
      * @param id
      * @param newTime
      */
-    const updateInventory = ({ id, newFNum, newSource, newDestination, newTime, newArrDep }) => {
-        fetch(`${inventory_api_url}/${id}`, {
-            method: "PATCH",
+    const updateInventory = ({ id, newTime }) => {
+        fetch(`${update_inventory_url}/${id}`, {
+            method: "POST",
             body: JSON.stringify({
-                "id": id,
-                "flight_num": newFNum,
-                "start": newSource,
-                "destination": newDestination,
-                "arr_dep": newArrDep,
-                "timing": newTime
-
-                // id: parseInt(id),
-                // flight_num: parseInt(newFNum),
-                // start: String(newSource),
-                // destination: String(newDestination),
-                // arr_dep: String(newArrDep),
-                // timing: parseInt(newTime)
+                "flighttime": newTime
             }),
             headers: {
                 "Content-type": "application/json; charset=UTF-8"
@@ -85,6 +68,9 @@ function DynamicTable({ inventory_api_url, airline_id }) {
             .then(json => {
                 // reset inEditMode and time state values
                 onCancel();
+
+                // Note that we don't specially handle failure of the PUT request
+                // This will simply manifest as the inventory not changing.
 
                 // fetch the updated data
                 fetchInventory();
@@ -96,8 +82,8 @@ function DynamicTable({ inventory_api_url, airline_id }) {
      * @param id -The id of the product
      * @param newTime - The new unit price of the product
      */
-    const onSave = ({ id, newFNum, newSource, newDestination, newTime, newArrDep }) => {
-        updateInventory({ id, newFNum, newSource, newDestination, newTime, newArrDep });
+    const onSave = ({ id, newTime }) => {
+        updateInventory({ id, newTime });
     }
 
     const onCancel = () => {
@@ -106,11 +92,6 @@ function DynamicTable({ inventory_api_url, airline_id }) {
             status: false,
             rowKey: null
         })
-        // reset state variables for each field to null
-        setFlightNum(null);
-        setSource(null);
-        setDestination(null);
-        setArrOrDep(null);
         setFlightTime(null);
     }
 
@@ -120,7 +101,6 @@ function DynamicTable({ inventory_api_url, airline_id }) {
             <table className="fl-table">
                 <thead>
                     <tr>
-                        <th>Flight ID</th>
                         <th>Flight Number</th>
                         <th>Airline</th>
                         <th>Source</th>
@@ -135,79 +115,42 @@ function DynamicTable({ inventory_api_url, airline_id }) {
                 <tbody>
                     {
                         data.map((item) => (
-                            <tr key={item.id}>
-                                <td>{item.id}</td>
+                            <tr key={item._id}>
                                 <td>
-                                    {
-                                        inEditMode.status && inEditMode.rowKey === item.id ? (
-                                            <input value={flightNum}
-                                                onChange={(event) => setFlightNum(event.target.value)}
-                                            />
-                                        ) : (
-                                                item.flight_num
-                                        )
-                                    }
+                                    {item.flight_num}
                                 </td>
-                                <td>{item.airline_name}</td>
+                                <td>{item.airline}</td>
                                 <td>
-                                    {
-                                        inEditMode.status && inEditMode.rowKey === item.id ? (
-                                            <input value={source}
-                                                onChange={(event) => setSource(event.target.value)}
-                                            />
-                                        ) : (
-                                                item.start
-                                        )
-                                    }
+                                    {item.start}
                                 </td>
                                 <td>
-                                    {
-                                        inEditMode.status && inEditMode.rowKey === item.id ? (
-                                            <input value={destination}
-                                                onChange={(event) => setDestination(event.target.value)}
-                                            />
-                                        ) : (
-                                                item.destination
-                                        )
-                                    }
+                                    {item.destination}
                                 </td>
                                 <td>
-                                    {
-                                        inEditMode.status && inEditMode.rowKey === item.id ? (
-                                            <input value={arr_dep}
-                                                onChange={(event) => setArrOrDep(event.target.value)}
-                                            />
-                                        ) : (
-                                                item.arr_dep
-                                        )
-                                    }
+                                    {item.arr_dep}
                                 </td>
                                 <td>{item.gate}</td>
                                 <td>
                                     {
-                                        inEditMode.status && inEditMode.rowKey === item.id ? (
+                                        inEditMode.status && inEditMode.rowKey === item._id ? (
                                             <input value={flightTime}
                                                 onChange={(event) => setFlightTime(event.target.value)}
                                             />
                                         ) : (
-                                            item.timing
+                                                item.flighttime
                                         )
                                     }
                                 </td>
                                 <td>{item.baggage}</td>
                                 <td>
                                     {
-                                        inEditMode.status && inEditMode.rowKey === item.id ? (
+                                        inEditMode.status && inEditMode.rowKey === item._id ? (
                                             <React.Fragment>
                                                 <button
                                                     className={"btn-success"}
                                                     onClick={() => onSave({
-                                                        id: item.id,
-                                                        currFNum: item.flight_num,
-                                                        currSource: item.source,
-                                                        currDestination: item.destination,
-                                                        currentTime: item.timing,
-                                                        currArrDep: item.arr_dep
+                                                        id: item._id,
+                                                        newTime: flightTime
                                                     })}
                                                 >
                                                     Save
@@ -225,12 +168,8 @@ function DynamicTable({ inventory_api_url, airline_id }) {
                                             <button
                                                 className={"btn-primary"}
                                                     onClick={() => onEdit({
-                                                        id: item.id,
-                                                        currFNum: item.flight_num,
-                                                        currSource: item.source,
-                                                        currDestination: item.destination,
-                                                        currentTime: item.timing,
-                                                        currArrDep: item.arr_dep
+                                                        id: item._id,
+                                                        currentTime: item.flighttime
                                                     })}
                                             >
                                                 Edit

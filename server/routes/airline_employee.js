@@ -8,7 +8,7 @@ router.get('/flights/:airline',AirlineEmployeeController.airline_flights);
 
 router.post('/add_flights',checkAuth, AirlineEmployeeController.add_flights);
 
-router.post('/update_flights/:fid',checkAuth,AirlineEmployeeController.update_flight);
+router.post('/update_flights/:_id',checkAuth,AirlineEmployeeController.update_flight);
 
 // router.post('/update_flights', AirlineEmployeeController.update_flights);
 

@@ -1,6 +1,5 @@
 import React from 'react';
 import { Container, Row, Button } from 'react-bootstrap';
-import StaticTable from '../../components/StaticTable/StaticTable';
 import { Link } from 'react-router-dom';
 
 import "./LandingPage.css";
@@ -27,15 +26,7 @@ const LandingPage = () => {
                                 Register
                             </Button>
                         </Link>
-
-
-
                       </div>
-
-                      
-
-                      
-
                 </div>
 
 

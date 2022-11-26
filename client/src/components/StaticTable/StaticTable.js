@@ -21,7 +21,7 @@ function StaticTable({ inventory_api_url }) {
 
     return (
         <div className="table-wrapper">
-            <h1>Flights Table</h1>
+            <h1>Flights Schedule</h1>
             <table className="fl-table">
                 <thead>
                     <tr>

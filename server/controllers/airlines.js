@@ -20,13 +20,13 @@ exports.add_airlines = (req, res) => {
 
 
 exports.delete_airlines = (req, res) => {
-    Airlines.findByIdAndDelete(req.params.aid)
+    Airlines.findByIdAndDelete(req.params._id)
     .then(() => res.json('Airline deleted.'))
     .catch(err => res.status(400).json('Error: ' + err));
 };
 
 exports.update_airlines = (req, res) => {
-    Airlines.findById(req.params.aid)
+    Airlines.findById(req.params._id)
     .then(airline => {
         airline.airline_name = req.body.airline_name;
         

@@ -52,14 +52,14 @@ exports.add_flights = (req, res) => {
     let curr_minutes = parseInt(curr_time.slice(3));
     curr_minutes = curr_hours*60 + curr_minutes ;
 
-    Flights.findById(req.params.fid)
+    Flights.findById(req.params._id)
     .then(flight => {
         const stringtime = req.body.flighttime;
         let hours = parseInt(stringtime.slice(0, 2));
         let minutes = parseInt(stringtime.slice(3));
         const flighttime = hours*60+minutes; 
         console.log(flight.flighttime-curr_minutes);
-        if((flight.flighttime-curr_minutes)>30){
+        if(Math.abs(flight.flighttime-curr_minutes)>30){
             flight.flighttime = flighttime;
             flight.save()
               .then(() => res.json('Flight time updated!'))
@@ -67,7 +67,7 @@ exports.add_flights = (req, res) => {
             return;
         }else{
             res.status(400).json({
-                error : 'You cannot change the schedulw within 30mins of take-off'
+                error : 'You cannot change the schedule within 30mins of take-off'
             });
             return;
         }

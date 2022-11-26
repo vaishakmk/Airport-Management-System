@@ -24,21 +24,23 @@ function FlightForm({ inventory_api_url }) {
             method: "POST",
             body: JSON.stringify({
                 flight_num: inputs.flight_num,
-                airline_name: inputs.airline_name,
+                airline: inputs.airline_name,
                 destination: inputs.destination,
                 start: inputs.start,
-                arr_dep: inputs.arr_dep,
-                timing: inputs.timing
+                flighttime: inputs.timing
             }),
             headers: {
                 "Content-type": "application/json; charset=UTF-8"
             }
         })
             .then(response => response.json())
+            .then(rand => window.location.reload(false))
+        // Ensures that any other components on the page refresh to pick up the change induced
+        // by this form submission. This is not the best way to do it, but its quick and dirty.
     }
 
     return (
-        <form class="form-style-9" onSubmit={handleSubmit}>
+        <form className="form-style-9" onSubmit={handleSubmit}>
             <ul>
                 <li>
                     <label>
@@ -47,7 +49,7 @@ function FlightForm({ inventory_api_url }) {
                         name="flight_num"
                         placeholder="Flight ID"
                         onChange={handleChange} 
-                        class="field-style field-split align-left" 
+                        className="field-style field-split align-left" 
                      />
                     </label>
                     <label>
@@ -56,7 +58,7 @@ function FlightForm({ inventory_api_url }) {
                             name="airline_name"
                             placeholder="Airline Name"
                             onChange={handleChange}
-                            class="field-style field-split align-right"
+                            className="field-style field-split align-right"
                         />
                     </label>
                 </li>
@@ -70,7 +72,7 @@ function FlightForm({ inventory_api_url }) {
                             name="start"
                             placeholder="Source Aiport Code"
                             onChange={handleChange}
-                            class="field-style field-split align-left" 
+                            className="field-style field-split align-left" 
                         />
                     </label>
                     <label>
@@ -79,7 +81,7 @@ function FlightForm({ inventory_api_url }) {
                             name="destination"
                             placeholder="Destination Aiport Code"
                             onChange={handleChange}
-                            class="field-style field-split align-right"
+                            className="field-style field-split align-right"
                         />
                     </label>
                 </li>
@@ -92,7 +94,7 @@ function FlightForm({ inventory_api_url }) {
                             name="arr_dep"
                             placeholder="Arrival at or Departure from SJC?"
                             onChange={handleChange}
-                            class="field-style field-split align-left" 
+                            className="field-style field-split align-left" 
                         />
                     </label>
                     <label>
@@ -101,7 +103,7 @@ function FlightForm({ inventory_api_url }) {
                             name="timing"
                             placeholder="Time of arrival at/departure from SJC"
                             onChange={handleChange}
-                            class="field-style field-split align-right"
+                            className="field-style field-split align-right"
                         />
                     </label>
                 </li>
@@ -112,61 +114,6 @@ function FlightForm({ inventory_api_url }) {
                 </li>
             </ul>
         </form>
-
-        /*
-
-        <form className='flight_form' onSubmit={handleSubmit}>
-            <label>Enter Flight ID:
-                <input
-                    type="text"
-                    name="flight_num"
-                    defaultValue={""}
-                    onChange={handleChange}
-                />
-            </label>
-            <label>Enter Airline Name:
-                <input
-                    type="text"
-                    name="airline_name"
-                    defaultValue={""}
-                    onChange={handleChange}
-                />
-            </label>
-            <label>Enter Source Aiport Code:
-                <input
-                    type="text"
-                    name="start"
-                    defaultValue={""}
-                    onChange={handleChange}
-                />
-            </label>
-            <label>Enter Destination Aiport Code:
-                <input
-                    type="text"
-                    name="destination"
-                    defaultValue={""}
-                    onChange={handleChange}
-                />
-            </label>
-            <label>Arrival at or Departure from SJC?
-                <input
-                    type="text"
-                    name="arr_dep"
-                    defaultValue={""}
-                    onChange={handleChange}
-                />
-            </label>
-            <label>Time of arrival at/departure from SJC:
-                <input
-                    type="number"
-                    name="timing"
-                    defaultValue={0}
-                    onChange={handleChange}
-                />
-            </label>
-            <input type="submit" />
-        </form>
-       */
     )
 }
 
