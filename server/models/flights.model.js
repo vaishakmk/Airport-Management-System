@@ -9,7 +9,8 @@ const flightSchema = new Schema({
     start : {type: String, default: ''},
     destination : {type: String, default: ''},
     arr_dep : {type: String, default: '',enum:['arrival','departure']},
-    gate : {type : Number, default: undefined},
+    gate : {type : String, default: undefined},
+    terminal : {type : String, default: undefined},
     flighttime : {type: Number, default: 0},
     baggage : {type: Number, default:undefined}
   }, {

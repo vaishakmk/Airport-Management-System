@@ -61,6 +61,8 @@ exports.add_flights = (req, res) => {
         console.log(flight.flighttime-curr_minutes);
         if(Math.abs(flight.flighttime-curr_minutes)>30){
             flight.flighttime = flighttime;
+            flight.gate=undefined;
+            flight.terminal=undefined;
             flight.save()
               .then(() => res.json('Flight time updated!'))
               .catch(err => res.status(400).json('Error: ' + err));

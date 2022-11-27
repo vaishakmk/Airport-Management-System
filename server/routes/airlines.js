@@ -1,15 +1,14 @@
 const router = require('express').Router();
-const Airlines = require('../models/airlines.model');
-const checkAuth = require('../middleware/check-auth');
+// const checkAuth = require('../middleware/check-auth');
 const AirlinesController = require('../controllers/airlines');
 
-router.get('/',checkAuth,AirlinesController.get_airlines);
+router.get('/', AirlinesController.get_airlines);
 
-router.post('/add',checkAuth,AirlinesController.add_airlines);
+router.post('/add', AirlinesController.add_airlines);
 
 
-router.delete('/:_id',checkAuth,AirlinesController.delete_airlines);
+router.delete('/:_id', AirlinesController.delete_airlines);
 
-router.post('/update/:_id',checkAuth,AirlinesController.update_airlines);
+router.post('/update/:_id', AirlinesController.update_airlines);
 
 module.exports = router;
