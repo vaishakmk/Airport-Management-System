@@ -3,7 +3,6 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const flightSchema = new Schema({
-    _id: Schema.Types.ObjectId,
     flight_num :{type: String,unique:true,required:true,minLength:5},
     airline: { type: String, required: true , minLength:3},
     start : {type: String, default: ''},
