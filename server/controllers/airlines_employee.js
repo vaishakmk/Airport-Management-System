@@ -1,4 +1,5 @@
 let Flights = require('../models/flights.model');
+let Gates = require('../models/gates.model');
 
 
 
@@ -60,6 +61,14 @@ exports.add_flights = (req, res) => {
         const flighttime = hours*60+minutes; 
         console.log(flight.flighttime-curr_minutes);
         if(Math.abs(flight.flighttime-curr_minutes)>30){
+            if(flight.gate!==undefined){
+              Gates.findOneAndUpdate({gate_num: flight.gate}, {$set:{gate_status:"UnOccupied"}}, {new: true}, (err, doc) => {
+                if (err) {
+                    console.log("Something wrong when updating data!");
+                }
+                console.log(doc);
+            });
+            }
             flight.flighttime = flighttime;
             flight.gate=undefined;
             flight.terminal=undefined;
