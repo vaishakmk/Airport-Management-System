@@ -39,7 +39,7 @@ export default function Login(props) {
                     navigate("/register", { replace: true });
                     break;
                 case "airport_employee":
-                    navigate("/register", { replace: true });
+                    navigate("/airport", { replace: true });
                     break;
                 case "airline_employee":
                     var path = `/airline/${data.airline_name}`;
