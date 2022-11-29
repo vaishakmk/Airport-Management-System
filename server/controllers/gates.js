@@ -81,6 +81,31 @@ exports.gate_unassignment = (req,res)=>{
     curr_minutes = curr_hours*60 + curr_minutes ;
     console.log(curr_minutes-30);
     Flights.find({flighttime:{$lte:curr_minutes-30}})
-    .then(flights => res.json(flights))
-    .catch(err => res.status(400).json('Error: ' + err));
+    .then(pastflights => {
+        for (let flight of pastflights)
+        {
+            if(flight.gate!==undefined)
+            {
+                Gates.findOneAndUpdate({gate_num: flight.gate}, {$set:{gate_status:"UnOccupied"}}, {new: true}, (err, doc) => {
+                    if (err) 
+                    {
+                        console.log("Something wrong when updating gate data!");
+                    }
+                    console.log(doc);
+                });
+                flight.gate=undefined;
+                flight.terminal=undefined;
+                flight.save()
+                .then(() =>  console.log(`Gate un-assigned for flight ${flight.flight_num}`))
+                .catch(err => {
+                    res.status(404).json(err+' : No free gates found');
+                    return;
+                });
+            }
+        }
+        console.log('Gates un-assigned successively');
+        res.status(200).json(pastflights);    
+        return;     
+    })
+    .catch(error => res.status(400).json(error+' : Error querying from flights model'));
 };
