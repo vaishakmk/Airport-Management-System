@@ -6,8 +6,7 @@ function StaticTable({ inventory_api_url }) {
 
     // GET request function to your Mock API
     const fetchInventory = () => {
-        fetch("http://localhost:5001/flights")
-            .then(res => res.json())
+        fetch(`${inventory_api_url}`)
             .then(json => setData(json));
         /*
          * This should return the set of flights departing or arriving at SJC
