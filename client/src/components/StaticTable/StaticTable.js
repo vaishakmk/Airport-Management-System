@@ -4,6 +4,12 @@ import "./StaticTable.css";
 function StaticTable({ inventory_api_url }) {
     const [data, setData] = useState([]);
 
+    function convertTime(time) {
+        let hours = Math.floor(time / 60);
+        let minutes = time % 60;
+        return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}`;
+    }
+
     // GET request function to your Mock API
     const fetchInventory = () => {
 
@@ -23,6 +29,7 @@ function StaticTable({ inventory_api_url }) {
     }, []);
 
     return (
+        
         <div className="table-wrapper">
            
             <table className="fl-table">
@@ -42,6 +49,7 @@ function StaticTable({ inventory_api_url }) {
                 <tbody>
                     {
                         data.map((item) => (
+                            
                             <tr key={item.id}>
                                 
                                 <td>{item.flight_num}</td>
@@ -50,10 +58,13 @@ function StaticTable({ inventory_api_url }) {
                                 <td>{item.destination}</td>
                                 <td>{item.arr_dep}</td>
                                 <td>{item.gate}</td>
-                                <td>{item.flighttime}</td>
+                                <td>{convertTime(item.flighttime)}</td>
+                                
                                 <td>{item.baggage}</td>
                             </tr>
+                            
                         ))
+                        
                     }
                 </tbody>
             </table>

@@ -1,6 +1,7 @@
 import React, {useState, useEffect, useContext} from 'react';
 import { Row, Col, Form, Button } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+
+import { Link, useNavigate } from 'react-router-dom';
 import './Register.css'
 
 export default function Register() {
@@ -10,6 +11,8 @@ export default function Register() {
   const [phone, setPhone] = useState(null);
   const [password,setPassword] = useState(null);
   const [type,setType] = useState(null);
+  
+  const navigate = useNavigate();
 
   const handleInputChange = (e) => {
       const {id , value} = e.target;
@@ -54,6 +57,7 @@ export default function Register() {
           }
       })
           .then(response => response.json())
+          navigate("/login", { replace: true });
   }
 
 
