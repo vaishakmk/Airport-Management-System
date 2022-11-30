@@ -9,6 +9,8 @@ router.get('/next4hr',FlightsController.get_next4hr_flights);
 
 router.get('/next2hr',FlightsController.get_next2hr_flights);
 
+router.get('/next1hr',FlightsController.get_next1hr_flights);
+
 router.delete('/:_id',checkAuth, FlightsController.delete_flight);
 
 
