@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
 import "./FlightForm.css";
 
-function FlightForm({ inventory_api_url }) {
+function FlightForm({ inventory_api_url, airline_name }) {
     const [inputs, setInputs] = useState({
         flight_num: "",
-        airline_name: "",
         destination: "",
         start: "",
-        arr_dep: "",
         timing: 0
 });
 
@@ -20,11 +18,13 @@ function FlightForm({ inventory_api_url }) {
     const handleSubmit = (event) => {
         event.preventDefault();
         alert(inputs);
-        fetch(`${inventory_api_url}`, {
+        fetch(`${inventory_api_url}`
+            // + "/" + `${inputs.flight_num}`
+            , {
             method: "POST",
             body: JSON.stringify({
                 flight_num: inputs.flight_num,
-                airline: inputs.airline_name,
+                airline: airline_name,
                 destination: inputs.destination,
                 start: inputs.start,
                 flighttime: inputs.timing
@@ -34,7 +34,7 @@ function FlightForm({ inventory_api_url }) {
             }
         })
             .then(response => response.json())
-            .then(rand => window.location.reload(false))
+            //.then(rand => window.location.reload(false))
         // Ensures that any other components on the page refresh to pick up the change induced
         // by this form submission. This is not the best way to do it, but its quick and dirty.
     }
@@ -55,51 +55,6 @@ function FlightForm({ inventory_api_url }) {
                     <label>
                         <input
                             type="text"
-                            name="airline_name"
-                            placeholder="Airline Name"
-                            onChange={handleChange}
-                            className="field-style field-split align-right"
-                        />
-                    </label>
-                </li>
-
-
-
-                <li>
-                    <label>
-                        <input
-                            type="text"
-                            name="start"
-                            placeholder="Source Aiport Code"
-                            onChange={handleChange}
-                            className="field-style field-split align-left" 
-                        />
-                    </label>
-                    <label>
-                        <input
-                            type="text"
-                            name="destination"
-                            placeholder="Destination Aiport Code"
-                            onChange={handleChange}
-                            className="field-style field-split align-right"
-                        />
-                    </label>
-                </li>
-
-
-                <li>
-                    <label>
-                        <input
-                            type="text"
-                            name="arr_dep"
-                            placeholder="Arrival at or Departure from SJC?"
-                            onChange={handleChange}
-                            className="field-style field-split align-left" 
-                        />
-                    </label>
-                    <label>
-                        <input
-                            type="number"
                             name="timing"
                             placeholder="Time of arrival at/departure from SJC"
                             onChange={handleChange}
@@ -108,6 +63,26 @@ function FlightForm({ inventory_api_url }) {
                     </label>
                 </li>
 
+                <li>
+                    <label>
+                        <input
+                            type="text"
+                            name="start"
+                            placeholder="Source Aiport"
+                            onChange={handleChange}
+                            className="field-style field-split align-left" 
+                        />
+                    </label>
+                    <label>
+                        <input
+                            type="text"
+                            name="destination"
+                            placeholder="Destination Aiport"
+                            onChange={handleChange}
+                            className="field-style field-split align-right"
+                        />
+                    </label>
+                </li>
 
                 <li>
                     <input type="submit" value="Add Flight" />

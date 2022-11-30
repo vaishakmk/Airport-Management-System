@@ -11,7 +11,6 @@ const Dashboard = () => {
     <h2>Flights scheduled within 4 hours</h2>
     <StaticTable inventory_api_url="http://localhost:5001/flights/next4hr" />
     </div>
-    
   )
 }
 

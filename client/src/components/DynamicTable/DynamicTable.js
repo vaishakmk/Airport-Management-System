@@ -8,12 +8,15 @@ function DynamicTable({ inventory_api_url, update_inventory_url, airline_id }) {
     const fetchInventory = () => {
         fetch(`${inventory_api_url}`)
             .then(res => res.json())
+            // .then(res => setData(res))
             .then(res => setData(res.filter(function (item) {
                 if (item.airline === airline_id) {
                     return true; // selecting only those records that belong to this airline
                 }
                 return false;
-            })));
+            })))
+            .then(res => console.log(airline_id))
+            ;
         /*
          * Returns the set of flights departing or arriving at SJC, and filters to retain
          * only those operated by the airline that the current employee belongs to
@@ -55,10 +58,12 @@ function DynamicTable({ inventory_api_url, update_inventory_url, airline_id }) {
      * @param newTime
      */
     const updateInventory = ({ id, newTime }) => {
-        fetch(`${update_inventory_url}/${id}`, {
+        fetch(
+            `${update_inventory_url}/${id}`
+            , {
             method: "POST",
-            body: JSON.stringify({
-                "flighttime": newTime
+                body: JSON.stringify({
+                   "flighttime": newTime
             }),
             headers: {
                 "Content-type": "application/json; charset=UTF-8"
@@ -97,7 +102,7 @@ function DynamicTable({ inventory_api_url, update_inventory_url, airline_id }) {
 
     return (
         <div className="table-wrapper">
-            <h1>Flights Table</h1>
+            <h1>Flights Table for { airline_id }</h1>
             <table className="fl-table">
                 <thead>
                     <tr>

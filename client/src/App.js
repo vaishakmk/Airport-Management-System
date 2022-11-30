@@ -23,7 +23,7 @@ const App = () => {
                 <Header />
                 <Routes>
                     <Route path="/" element={<LandingPage />} />
-                    <Route path="/airline/:username" element={<AirlinePage />} />
+                    <Route path="/airline/:airline_id" element={<AirlinePage />} />
                     <Route path="/airport" element={<AirportPage />} />
                     <Route path="/airport/gate" element={<GateMaintenance /> } />
                     <Route path="/airport/baggage" element={<BaggageAssignment />} />
