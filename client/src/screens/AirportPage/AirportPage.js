@@ -24,7 +24,7 @@ export default function AirportPage() {
             <Link to="/airport/baggage">Baggage Carousel Assignment</Link>
         </Button>
         <Button variant="primary">
-            <Link onClick={assignRandomGate}>Random Gate Assign Gate</Link>
+            <Link onClick={assignRandomGate}>Random Gate Assignment</Link>
         </Button>
         <StaticTable/>
         </div>
