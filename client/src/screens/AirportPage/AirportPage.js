@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import StaticTable from '../../components/StaticTable/StaticTable';
 
 export default function AirportPage() {
-    const assignRandomGate = () => {
+    const assignRandomGate = (e) => {
         e.preventDefault();
         fetch('http://localhost:5001/gates/random_assignment', {
             method: 'POST'
