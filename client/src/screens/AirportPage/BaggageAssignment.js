@@ -29,6 +29,7 @@ function BaggageAssignment() {
 
 
     <div>
+      <h2>Baggage Carousel Assignment Page</h2>
        <div>      
         <Form onSubmit={handleSubmit}>
             <Form.Group controlId="formBasicEmail">
