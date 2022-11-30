@@ -6,7 +6,9 @@ function StaticTable({ inventory_api_url }) {
 
     // GET request function to your Mock API
     const fetchInventory = () => {
-        fetch("http://localhost:5001/flights")
+        fetch(
+            `${inventory_api_url}`
+        )
             .then(res => res.json())
             .then(json => setData(json));
         /*

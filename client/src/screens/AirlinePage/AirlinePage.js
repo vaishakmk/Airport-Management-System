@@ -39,7 +39,9 @@ const AirlinePage = () => {
 
                 </div>
               </Row>
-              <FlightForm inventory_api_url="http://localhost:5001/airline_employee/add_flights" />
+              <FlightForm inventory_api_url="http://localhost:5001/airline_employee/add_flights"
+                          airline_name={airline_id}
+              />
               <DynamicTable
                   inventory_api_url={"http://localhost:5001/flights"}
                   update_inventory_url={"http://localhost:5001/airline_employee/update_flights"}
