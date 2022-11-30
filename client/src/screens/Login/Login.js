@@ -36,7 +36,7 @@ export default function Login(props) {
             //switch case for user type
             switch(data.usertype){
                 case "passenger":
-                    navigate("/register", { replace: true });
+                    navigate("/dashboard", { replace: true });
                     break;
                 case "airport_employee":
                     navigate("/airport", { replace: true });
@@ -74,7 +74,8 @@ export default function Login(props) {
 
     
  return (
-    <div>      
+    <div>   
+        <h1>Login Page</h1>   
         <Form onSubmit={handleSubmit}>
             <Form.Group controlId="formBasicEmail">
                 <Form.Label>Email Id </Form.Label>

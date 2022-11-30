@@ -17,6 +17,7 @@ export default function AirportPage() {
 
     return (
         <div>
+            <h1>Airport Page</h1>
         <Button variant="primary">
             <Link to="/airport/gate">Gate MAintenance</Link>
         </Button>

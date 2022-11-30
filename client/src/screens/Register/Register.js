@@ -1,5 +1,6 @@
 import React, {useState, useEffect, useContext} from 'react';
 import { Row, Col, Form, Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import './Register.css'
 
 export default function Register() {
@@ -117,7 +118,9 @@ export default function Register() {
     //       />
     //     </div>
         
-
+    <>
+    <h1>Registration Page</h1>
+    
 
 <Form onSubmit={handleSubmit}>
 <Form.Group controlId="formBasicEmail">
@@ -165,11 +168,12 @@ export default function Register() {
           
           
           <Button variant="primary" type="submit">
-                Submit
+                
+                <Link to="/login">Submit</Link>
             </Button>
           </Form>
         
-      
+          </>
   );       
   }
 
