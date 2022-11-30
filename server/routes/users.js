@@ -8,7 +8,7 @@ router.get("/users",UserController.get_employees);
 
 router.post('/login', UserController.login);
 
-router.delete('users/:_id',UserController.delete_employee);
+router.delete('/users/:_id',UserController.delete_employee);
 
 
 module.exports = router;
