@@ -17,6 +17,15 @@ export default function AirportPage() {
         .catch(err => console.log(err));
     };
 
+    const periodicUnassignment = (e) => {
+        e.preventDefault();
+        fetch('http://localhost:5001/gates/periodic_unassignment', {
+            method: 'POST'
+        })
+        .then(res => res.json())
+        .catch(err => console.log(err));
+    };
+
     return (
 
         <div className="main">
@@ -41,7 +50,12 @@ export default function AirportPage() {
                         </Link>
                         <Link onClick={assignRandomGate}>
                             <Button size='lg' className='btn btn-default btn-responsive' variant='outline-primary'>
-                            RAndom Gate Assignment
+                            Random Gate Assignment
+                            </Button>
+                        </Link>
+                        <Link onClick={periodicUnassignment}>
+                            <Button size='lg' className='btn btn-default btn-responsive' variant='outline-primary'>
+                            Gate Unassignment
                             </Button>
                         </Link>
                       </div>
@@ -49,7 +63,9 @@ export default function AirportPage() {
 
 
             </Row>
-            <StaticTable  inventory_api_url="http://localhost:5001/flights/"/>
+            <StaticTable  inventory_api_url="http://localhost:5001/flights/next4hr" />
+            <h2>All flights</h2>
+            <StaticTable  inventory_api_url="http://localhost:5001/flights/" />
         </Container>
         
     </div>
