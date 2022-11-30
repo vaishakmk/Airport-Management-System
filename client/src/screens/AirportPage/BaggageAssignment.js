@@ -1,5 +1,6 @@
-import React from 'react'
-import { Form, Button } from 'react-bootstrap'
+import React from 'react';
+import { Form, Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import BaggageTable from '../../components/BaggageTable/BaggageTable';
 
@@ -42,6 +43,9 @@ function BaggageAssignment() {
             <Button variant="primary" type="submit">
                 Submit
             </Button>
+            <Button variant="primary">
+            <Link to="/airport">Back</Link>
+        </Button>
             </Form> 
             <BaggageTable/>
     </div>

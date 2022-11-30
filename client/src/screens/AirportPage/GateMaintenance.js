@@ -1,8 +1,6 @@
-import React from 'react'
-
-
-
-import { Form, Button, Dropdown } from 'react-bootstrap'
+import React from 'react';
+import { Form, Button, Dropdown } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import GateStatusTable from '../../components/GateStatusTable/GateStatusTable';
 
@@ -57,6 +55,9 @@ function GateMaintenance() {
             <Button variant="primary" type="submit">
                 Submit
             </Button>
+            <Button variant="primary">
+            <Link to="/airport">Back</Link>
+        </Button>
             </Form> 
             <GateStatusTable/>
     </div>
