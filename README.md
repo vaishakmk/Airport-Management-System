@@ -2,7 +2,7 @@
 
 # Airline Management System (Team GoF)
 
-# Team Members:
+### Team Members:
 - Akshara Narayana
 - Divija Naredla
 - Prerna Bharadwaj
@@ -17,20 +17,16 @@ https://github.com/gopinathsjsu/team-project-gof
 - Database: Prerna, Akshara
 - Deployment: TBD
 
-# Scrum meetings schedule:
+#### Scrum meetings schedule:
 Every Monday and Thursday
-
-# Sprint Task Sheet:
-https://docs.google.com/spreadsheets/d/1AxkQ2meuDWeRD4gkbFXwkRuPzay7Yd-g6rpFt1d4OjM/edit?usp=sharing
-
-# XP Core Values :
-**Communication** : We are conduting regular meetings every week on a Zoom call to discuss the crucial aspects of the project by collaborating and communicating with each other.
-
-**Feedback** : Team members are delivering the assigned work frequently and getting feedback about it. We are refractoring the code to make improvements and fixing the bugs.
 
 #### Sprint Task Sheet:
 https://docs.google.com/spreadsheets/d/1AxkQ2meuDWeRD4gkbFXwkRuPzay7Yd-g6rpFt1d4OjM/edit?usp=sharing
 
+#### XP Core Values :
+**Communication** : We are conduting regular meetings every week on a Zoom call to discuss the crucial aspects of the project by collaborating and communicating with each other.
+
+**Feedback** : Team members are delivering the assigned work frequently and getting feedback about it. We are refractoring the code to make improvements and fixing the bugs.
 
 #### XP Values:
 Feedback and Communication (Weekly status update calls)
@@ -68,6 +64,18 @@ We communicated regularly online and offline. We had status updates twice every 
 3. For frontend, we used react for faster page load and reload due to virtual DOM.
 4. Node JS for backend for its ability of asynchronous calls and eventloop.
 
+## Diagrams
 
+#### 1. Architecture Diagram
+
+<img width="636" alt="Archietecture Diagram" src="https://user-images.githubusercontent.com/99863530/204728857-555acc2c-90e1-4852-9261-a489e15124dd.png">
+
+#### 2. Database Diagram
+
+<img width="685" alt="image" src="https://user-images.githubusercontent.com/99863530/204729594-5003dfbf-9836-4879-a2c2-2170c5eb2683.png">
+
+#### 3. Deployment Diagram
+
+<img width="979" alt="image" src="https://user-images.githubusercontent.com/99863530/204729888-3dd19e23-4d87-45be-a183-2d42a7ae2631.png">
 
 
