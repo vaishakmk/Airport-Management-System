@@ -60,64 +60,8 @@ export default function Register() {
   
 
   return (
-    // <div className="form">
-    //   <div className="form-body">
-    //     <div className="username">
-    //       <label className="form__label" for="name">
-    //         {" "}
-    //         Name{" "}
-    //       </label>
-    //       <input
-    //         className="form__input"
-    //         type="text"
-    //         value={name}
-    //         onChange={(e) => handleInputChange(e)}
-    //         id="name"
-    //         placeholder="First Name & Last Name"
-    //       />
-    //     </div>
+   
 
-    //     <div className="email">
-    //       <label className="form__label" for="email">
-    //         Email{" "}
-    //       </label>
-    //       <input
-    //         type="email"
-    //         id="email"
-    //         className="form__input"
-    //         value={email}
-    //         onChange={(e) => handleInputChange(e)}
-    //         placeholder="Email"
-    //       />
-    //     </div>
-    //     <div className="phone">
-    //       <label className="form__label" for="phone">
-    //         Phone
-    //       </label>
-    //       <input
-    //         type="text"
-    //         name=""
-    //         id="phone"
-    //         value={phone}
-    //         className="form__input"
-    //         onChange={(e) => handleInputChange(e)}
-    //         placeholder="Phone"
-    //       />
-    //     </div>
-    //     <div className="password">
-    //       <label className="form__label" for="password">
-    //         Password{" "}
-    //       </label>
-    //       <input
-    //         className="form__input"
-    //         type="password"
-    //         id="password"
-    //         value={password}
-    //         onChange={(e) => handleInputChange(e)}
-    //         placeholder="Password"
-    //       />
-    //     </div>
-        
     <>
     <h2>Registration Page</h2>
     
@@ -169,7 +113,7 @@ export default function Register() {
           
           <Button variant="primary" type="submit">
                 
-                <Link to="/login">Submit</Link>
+               Submit
             </Button>
           </Form>
         
