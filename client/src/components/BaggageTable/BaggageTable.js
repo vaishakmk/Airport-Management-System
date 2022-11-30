@@ -17,7 +17,7 @@ function BaggageTable({ inventory_api_url }) {
 
     return (
         <div className="table-wrapper">
-            <h1>Arrival Flights Details</h1>
+            <h2>Arrival Flights Details</h2>
             <table className="fl-table">
                 <thead>
                     <tr>

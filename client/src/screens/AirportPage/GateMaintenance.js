@@ -32,7 +32,7 @@ function GateMaintenance() {
 
 
     <div>
-      <h1>Gate Maintenance Page</h1>
+      <h2>Gate Maintenance Page</h2>
        <div>      
         <Form onSubmit={handleSubmit}>
             <Form.Group controlId="formBasicEmail">

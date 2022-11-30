@@ -119,7 +119,7 @@ export default function Register() {
     //     </div>
         
     <>
-    <h1>Registration Page</h1>
+    <h2>Registration Page</h2>
     
 
 <Form onSubmit={handleSubmit}>

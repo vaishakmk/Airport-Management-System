@@ -75,7 +75,7 @@ export default function Login(props) {
     
  return (
     <div>   
-        <h1>Login Page</h1>   
+        <h2>Login Page</h2>   
         <Form onSubmit={handleSubmit}>
             <Form.Group controlId="formBasicEmail">
                 <Form.Label>Email Id </Form.Label>
