@@ -49,7 +49,7 @@ export default function AirportPage() {
 
 
             </Row>
-            <StaticTable/>
+            <StaticTable  inventory_api_url="http://localhost:5001/flights/"/>
         </Container>
         
     </div>
