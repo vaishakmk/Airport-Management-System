@@ -4,7 +4,7 @@ let UserController = require('../controllers/users');
 
 router.post("/signup",UserController.signup_page);
 
-router.get('/users',UserController.get_employees);
+router.get("/users",UserController.get_employees);
 
 router.post('/login', UserController.login);
 
