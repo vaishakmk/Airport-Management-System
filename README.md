@@ -11,7 +11,7 @@
 # Task Allocation:
 - Frontend: Divija, Prerna
 - Backend: Akshara, Vaishak
-- Database: Prerna, Akshara
+- Database: Vaishak, Akshara
 - Deployment: Akshara
 
 #### Scrum meetings schedule:
