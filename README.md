@@ -33,6 +33,10 @@ https://github.com/gopinathsjsu/team-project-gof/blob/main/Agile%20Documentation
 
 https://docs.google.com/spreadsheets/d/1GpGIGzS88WQOtMfDI9OVqi3wONEa7_-s7MEVtT2srz4/edit?usp=sharing
 
+#### Individual Sprint Activity Journals:
+
+https://github.com/gopinathsjsu/team-project-gof/tree/main/Agile%20Documentation/Individual%20Journals
+
 #### How to run the web-app:
 * Step 1: Clone the app by command " git clone https://github.com/gopinathsjsu/team-project-gof"
 * Step 2: Go to the client directory and install node modules by command "npm i OR npm install"
