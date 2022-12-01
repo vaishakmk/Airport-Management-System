@@ -7,31 +7,35 @@
 - Divija Naredla
 - Prerna Bharadwaj
 - Vaishak Melarcode Kallampad
-- 
-#### Git repo: 
-https://github.com/gopinathsjsu/team-project-gof
 
 # Task Allocation:
 - Frontend: Divija, Prerna
 - Backend: Akshara, Vaishak
 - Database: Prerna, Akshara
-- Deployment: TBD
+- Deployment: Akshara
 
 #### Scrum meetings schedule:
 Every Monday and Thursday
 
+#### Git repo: 
+https://github.com/gopinathsjsu/team-project-gof
+
 #### Sprint Task Sheet:
 https://docs.google.com/spreadsheets/d/1AxkQ2meuDWeRD4gkbFXwkRuPzay7Yd-g6rpFt1d4OjM/edit?usp=sharing
 
-#### XP Core Values :
-**Communication** : We are conduting regular meetings every week on a Zoom call to discuss the crucial aspects of the project by collaborating and communicating with each other.
+<img width="1427" alt="Screen Shot 2022-11-30 at 9 38 56 PM" src="Agile Documentation/Burndown chart.png">
 
-**Feedback** : Team members are delivering the assigned work frequently and getting feedback about it. We are refractoring the code to make improvements and fixing the bugs.
+#### XP Core Values Journal:
 
-#### XP Values:
-Feedback and Communication (Weekly status update calls)
-We communicated regularly online and offline. We had status updates twice every week through calls, zoom and whatsapp. 
+https://github.com/gopinathsjsu/team-project-gof/blob/main/Agile%20Documentation/XP%20Core%20values%20per%20Sprint.pdf
 
+#### Task Board:
+
+https://docs.google.com/spreadsheets/d/1GpGIGzS88WQOtMfDI9OVqi3wONEa7_-s7MEVtT2srz4/edit?usp=sharing
+
+#### Individual Sprint Activity Journals:
+
+https://github.com/gopinathsjsu/team-project-gof/tree/main/Agile%20Documentation/Individual%20Journals
 
 #### How to run the web-app:
 * Step 1: Clone the app by command " git clone https://github.com/gopinathsjsu/team-project-gof"
@@ -68,14 +72,13 @@ We communicated regularly online and offline. We had status updates twice every 
 
 #### 1. Architecture Diagram
 
-<img width="636" alt="Archietecture Diagram" src="https://user-images.githubusercontent.com/99863530/204728857-555acc2c-90e1-4852-9261-a489e15124dd.png">
+<img width="1427" alt="Screen Shot 2022-11-30 at 9 38 56 PM" src="https://user-images.githubusercontent.com/99863530/204974555-fa0a4b78-e792-4758-ab60-39eced088ae6.png">
 
 #### 2. Database Diagram
 
-<img width="685" alt="image" src="https://user-images.githubusercontent.com/99863530/204729594-5003dfbf-9836-4879-a2c2-2170c5eb2683.png">
+<img width="1169" alt="Database Diagram" src="https://user-images.githubusercontent.com/99863530/204978478-78a5fc50-0d0c-4996-a1b8-3a7afc9348a2.png">
 
 #### 3. Deployment Diagram
 
-<img width="979" alt="image" src="https://user-images.githubusercontent.com/99863530/204729888-3dd19e23-4d87-45be-a183-2d42a7ae2631.png">
-
+<img width="845" alt="Deployment diagram (1)" src="https://user-images.githubusercontent.com/99863530/204978564-e4b20437-65c2-4fe4-8f2e-5173d5285e95.png">
 

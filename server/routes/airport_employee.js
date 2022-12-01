@@ -10,4 +10,7 @@ router.post('/gates', AirportEmployeeController.set_gates);
 router.get('/arrival_fights', AirportEmployeeController.get_flights);
 
 router.post('/arrival_fights', AirportEmployeeController.set_baggage);
+
+router.post('/unassign_baggage',AirportEmployeeController.unassign_baggage);
+
 module.exports = router;

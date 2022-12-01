@@ -17,7 +17,6 @@ function FlightForm({ inventory_api_url, airline_name }) {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        alert(inputs);
         fetch(`${inventory_api_url}`
             // + "/" + `${inputs.flight_num}`
             , {
@@ -34,7 +33,7 @@ function FlightForm({ inventory_api_url, airline_name }) {
             }
         })
             .then(response => response.json())
-            //.then(rand => window.location.reload(false))
+            .then(rand => window.location.reload(false))
         // Ensures that any other components on the page refresh to pick up the change induced
         // by this form submission. This is not the best way to do it, but its quick and dirty.
     }
