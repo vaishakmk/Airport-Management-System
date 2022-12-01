@@ -7,7 +7,7 @@
 - Divija Naredla
 - Prerna Bharadwaj
 - Vaishak Melarcode Kallampad
-- 
+
 #### Git repo: 
 https://github.com/gopinathsjsu/team-project-gof
 
@@ -15,7 +15,7 @@ https://github.com/gopinathsjsu/team-project-gof
 - Frontend: Divija, Prerna
 - Backend: Akshara, Vaishak
 - Database: Prerna, Akshara
-- Deployment: TBD
+- Deployment: Akshara
 
 #### Scrum meetings schedule:
 Every Monday and Thursday
@@ -68,7 +68,7 @@ We communicated regularly online and offline. We had status updates twice every 
 
 #### 1. Architecture Diagram
 
-<img width="636" alt="Archietecture Diagram" src="https://user-images.githubusercontent.com/99863530/204728857-555acc2c-90e1-4852-9261-a489e15124dd.png">
+<img width="1427" alt="Screen Shot 2022-11-30 at 9 38 56 PM" src="https://user-images.githubusercontent.com/99863530/204974555-fa0a4b78-e792-4758-ab60-39eced088ae6.png">
 
 #### 2. Database Diagram
 
