@@ -25,13 +25,9 @@ https://docs.google.com/spreadsheets/d/1AxkQ2meuDWeRD4gkbFXwkRuPzay7Yd-g6rpFt1d4
 
 <img width="1427" alt="Screen Shot 2022-11-30 at 9 38 56 PM" src="Agile Documentation/Burndown chart.png">
 
-#### XP Core Values :
+#### XP Core Values Journal:
 
-Weekly Status update meetings.
-
-**Communication** : We are conduting regular meetings every week on a Zoom call to discuss the crucial aspects of the project by collaborating and communicating with each other.
-
-**Feedback** : Team members are delivering the assigned work frequently and getting feedback about it. We are refractoring the code to make improvements and fixing the bugs.
+https://github.com/gopinathsjsu/team-project-gof/blob/main/Agile%20Documentation/XP%20Core%20values%20per%20Sprint.pdf
 
 #### How to run the web-app:
 * Step 1: Clone the app by command " git clone https://github.com/gopinathsjsu/team-project-gof"
