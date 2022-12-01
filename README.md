@@ -1,6 +1,6 @@
-# CMPE 202 Fall 2022 Team Project
+## CMPE 202 Fall 2022 Team Project
 
-# Airline Management System (Team GoF)
+## Airline Management System (Team GoF)
 
 ### Team Members:
 - Akshara Narayana
@@ -24,6 +24,16 @@ https://github.com/gopinathsjsu/team-project-gof
 https://docs.google.com/spreadsheets/d/1AxkQ2meuDWeRD4gkbFXwkRuPzay7Yd-g6rpFt1d4OjM/edit?usp=sharing
 
 <img width="1427" alt="Screen Shot 2022-11-30 at 9 38 56 PM" src="Agile Documentation/Burndown chart.png">
+
+#### XP Core Values Implemented:
+
+Communication: Maintained healthy communication throughout the project implementation and participated in weekly scrum calls to discuss progress.
+
+Simplicity: We started with easy to understand functionality and scaled it up to meet project requirements according to the rubric.
+
+Feedback: Constructive feedback was provided by the team members on features that needed improvement. The feedback was very well received and were effectively implemented by the team members. Frequent reviews helped us solve bugs and make fixes easily.
+
+Courage: We had the courage to incorporate any additional details/tasks that were required for the project progress.
 
 #### XP Core Values Journal:
 
