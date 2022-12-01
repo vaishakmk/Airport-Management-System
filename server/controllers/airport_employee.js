@@ -83,3 +83,36 @@ exports.set_baggage = (req,res) => {
     })
     
 };
+
+
+exports.unassign_baggage = (req,res) =>{
+    let curr_time = new Date().toLocaleTimeString('en-US', { hour12: false, 
+    hour: "numeric", 
+    minute: "numeric"});
+    console.log(curr_time);
+    let curr_hours = parseInt(curr_time.slice(0, 2));
+    let curr_minutes = parseInt(curr_time.slice(3));
+    curr_minutes = curr_hours*60 + curr_minutes ;
+    console.log(curr_minutes-30);
+    Flights.find({flighttime:{$lte:curr_minutes-60},arr_dep:"arrival"})
+    .then(pastflights => {
+        for (let flight of pastflights)
+        {
+            console.log(flight.flight_num)
+            if(flight.baggage!==undefined)
+            {
+                
+                flight.baggage=undefined;
+                flight.save()
+                .then(() =>  console.log(`Baggage carousel un-assigned for flight ${flight.flight_num}`))
+                .catch(err => {
+                    res.status(404).json(err);
+                    return;
+                });
+            }
+        }
+        res.status(200).json('Baggage carousel un-assigned successively');    
+        return;     
+    })
+    .catch(err => res.status(400).json(err+' : Error querying from flights model'));
+};
