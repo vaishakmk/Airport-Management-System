@@ -1,5 +1,6 @@
 import React from 'react';
 import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
+import "./Header.css";
 
 
 
@@ -18,7 +19,7 @@ const Header = () => {
         <Navbar.Brand href="#home">San Jose Airport</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
+          <Nav className="topnav-right">
             <Nav.Link href="/">Home</Nav.Link>
             <Nav.Link href="/dashboard">Dashboard</Nav.Link>
             {

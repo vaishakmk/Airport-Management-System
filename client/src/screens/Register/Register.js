@@ -1,5 +1,5 @@
 import React, {useState, useEffect, useContext} from 'react';
-import { Row, Col, Form, Button } from 'react-bootstrap';
+import { Row, Col, Form, Button, Alert } from 'react-bootstrap';
 
 import { Link, useNavigate } from 'react-router-dom';
 import './Register.css'
@@ -11,10 +11,12 @@ export default function Register() {
   const [phone, setPhone] = useState(null);
   const [password,setPassword] = useState(null);
   const [type,setType] = useState(null);
-  
-  const navigate = useNavigate();
+  const [showAlert, setShowAlert] = useState(false);
+
+  const navigate = useNavigate();  
 
   const handleInputChange = (e) => {
+    e.preventDefault();
       const {id , value} = e.target;
       if(id === "name"){
           console.log("🚀 ~ file: Register.js ~ line 18 ~ handleInputChange ~ value", value)
@@ -31,16 +33,13 @@ export default function Register() {
         setPassword(value);
       }
       if(id === "type"){
-        // console.log("🚀 ~ file: Register.js ~ line 32 ~ handleInputChange ~ value", value)
-
           setType(value);
                 }
 
   }
 
-  const handleSubmit  = () => {
-    // event.preventDefault();
-    console.log("sadfsf",type);
+  const handleSubmit  = (e) => {
+    e.preventDefault();
       
       fetch(`http://localhost:5001/signup`, {
           method: "POST",
@@ -56,20 +55,22 @@ export default function Register() {
               "Content-type": "application/json; charset=UTF-8"
           }
       })
-          .then(response => response.json())
-          navigate("/login", { replace: true });
+          .then(res =>{
+              if(res.status == 409){
+                alert("User already exists");
+                // setShowAlert(true);
+              }
+              else if (res.status === 200){
+                navigate("/login", { replace: true });
+              }
+
+              return res.json();
+          })
+          .catch(err => console.log(err));
   }
-
-
-  
-
   return (
-   
-
-    <>
+    <div className="register">
     <h2>Registration Page</h2>
-    
-
 <Form onSubmit={handleSubmit}>
 <Form.Group controlId="formBasicEmail">
                 <Form.Label>Name </Form.Label>
@@ -79,7 +80,7 @@ export default function Register() {
                 <Form.Label>Email ID </Form.Label>
                 <Form.Control type="text" placeholder="Enter Email" onChange={e => setEmail(e.target.value)}/>
             </Form.Group>
-            <Form.Group controlId="formBasicPassword">
+            <Form.Group controlId="formBasicPhoneController">
                 <Form.Label>Phone</Form.Label>
                 <Form.Control type="text" placeholder=" Enter Phone Number" onChange={e => setPhone(e.target.value)}/>
             </Form.Group>
@@ -120,8 +121,8 @@ export default function Register() {
                Submit
             </Button>
           </Form>
-        
-          </>
+          {/* {showAlert && <Alert variant="danger">User already exists</Alert>} */}
+          </div>  
   );       
   }
 

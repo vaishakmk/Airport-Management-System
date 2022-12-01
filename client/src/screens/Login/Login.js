@@ -27,13 +27,15 @@ export default function Login(props) {
         })
     })
     .then(res => {
-            console.log(res)
+            
             if(res.status === 401){
-                setAuthFailed(true);
+                // setAuthFailed(true);
                 // throw new Error('Unauthorized');
+                alert("Auth Failed");
+
             }
         return res.json();
-        }
+        }   
 
     )
     .then(data => {
@@ -69,7 +71,8 @@ export default function Login(props) {
     
  return (
     <div>   
-        <h2>Login Page</h2>   
+        <h2>Login Page</h2>  
+        <div className="container">
         <Form onSubmit={handleSubmit}>
             <Form.Group controlId="formBasicEmail">
                 <Form.Label>Email Id </Form.Label>
@@ -85,7 +88,8 @@ export default function Login(props) {
             </Button>
             
             </Form> 
-            {authFailed && <Alert variant="danger">Invalid Credentials</Alert>}
+            {/* {authFailed && <Alert variant="danger">Invalid Credentials</Alert>} */}
+            </div> 
     </div>
     )
 }

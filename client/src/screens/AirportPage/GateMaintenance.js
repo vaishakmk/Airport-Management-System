@@ -36,7 +36,35 @@ useEffect(() => {
           gate_status: status
         })
     })
-    .then(res => fetchInventory())
+    // .then(res => fetchInventory())
+    .then(res => {
+            
+      if(res.status === 409){
+          
+          alert("This gate is currently occupied");
+      }
+
+       else if(res.status === 404){
+            
+            alert("Please provide correct terminal and gate info");
+
+      }
+  return res.json();
+  } )
+
+//     .then(res => {
+//       console.log(res.sta); 
+//       if(res.status === 409){
+
+
+//           console.log("This gate is currently occupied");
+//           alert("This gate is currently occupied");
+
+//       }
+//   return res.json();
+//   }   
+
+// )
 
   }
   return (

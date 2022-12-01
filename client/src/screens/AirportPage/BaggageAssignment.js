@@ -23,8 +23,24 @@ function BaggageAssignment() {
             baggage: baggage
         })
     })
+    .then(res =>{
+      if(res.status == 404){
+        alert("Please re-enter the correct flight information");
+        // setShowAlert(true);
+      }
+      else if (res.status === 400){
+        alert("This Flight has already been assigned a baggage counter");
+      }
+      else if (res.status === 500){
+        alert("Server Error");
+      }
+      else if (res.status === 409){
+        alert("This baggage counter has already been assigned to 4 flights. Please assign another counter");
+      }
 
-  }
+      return res.json();
+  })
+}
   return (
 
 
@@ -48,7 +64,7 @@ function BaggageAssignment() {
             <Link to="/airport">Back</Link>
         </Button>
             </Form> 
-            <BaggageTable/>
+            <BaggageTable inventory_api_url = {`${process.env.REACT_APP_BASE_URL}/airport_employee/arrival_fights`}/>
     </div>
 
 

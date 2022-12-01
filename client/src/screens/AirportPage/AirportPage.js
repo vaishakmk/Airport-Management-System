@@ -17,6 +17,15 @@ export default function AirportPage() {
         .catch(err => console.log(err));
     };
 
+    const baggageUnassignment = (e) => {
+        e.preventDefault();
+        fetch(`${process.env.REACT_APP_BASE_URL}/airport_employee/unassign_baggage`, {
+            method: 'POST'
+        })
+        .then(res => res.json())
+        .catch(err => console.log(err));
+    };
+
     const periodicUnassignment = (e) => {
         e.preventDefault();
         fetch(`${process.env.REACT_APP_BASE_URL}/gates/periodic_unassignment`, {
@@ -56,6 +65,11 @@ export default function AirportPage() {
                         <Link onClick={periodicUnassignment}>
                             <Button size='lg' className='btn btn-default btn-responsive' variant='outline-primary'>
                             Gate Unassignment
+                            </Button>
+                        </Link>
+                        <Link onClick={baggageUnassignment}>
+                            <Button size='lg' className='btn btn-default btn-responsive' variant='outline-primary'>
+                            Baggage Unassignment
                             </Button>
                         </Link>
                       </div>

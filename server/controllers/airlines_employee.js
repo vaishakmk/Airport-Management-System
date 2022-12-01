@@ -74,10 +74,10 @@ exports.add_flights = (req, res) => {
             flight.terminal=undefined;
             flight.save()
               .then(() => res.json('Flight time updated!'))
-              .catch(err => res.status(400).json('Error: ' + err));
+              .catch(err => res.status(407).json('Error: ' + err));
             return;
         }else{
-            res.status(400).json({
+            res.status(409).json({
                 error : 'You cannot change the schedule within 30mins of take-off'
                 
             });

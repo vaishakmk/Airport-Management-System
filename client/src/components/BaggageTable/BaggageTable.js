@@ -12,7 +12,7 @@ function BaggageTable({ inventory_api_url }) {
     }
 
     const fetchInventory = () => {
-        fetch(`${process.env.BASE_URL}/airport_employee/arrival_fights`)
+        fetch(`${inventory_api_url}`)
             .then(res => res.json())
             .then(json => setData(json));
 
