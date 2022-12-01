@@ -1,4 +1,5 @@
 import React from 'react';
+import { useEffect, useState } from 'react';
 import { Form, Button, Dropdown } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
@@ -10,12 +11,21 @@ function GateMaintenance() {
   const [terminal, setTerminal] = React.useState('')
   const[gate, setGate] = React.useState('')
   const[status, setStatus] = React.useState('')
+  const [data, setData] = useState([]);
   
+  const fetchInventory = () => {
+    fetch(`${process.env.REACT_APP_BASE_URL}/airport_employee/gates`)
+        .then(res => res.json())
+        .then(json => setData(json));
 
+}
+useEffect(() => {
+  fetchInventory();
+}, []);
   // const navigate = useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch('http://localhost:5001/airport_employee/gates', {
+    fetch(`${process.env.REACT_APP_BASE_URL}/airport_employee/gates`, {
         method: 'POST',
         headers: {
             "Content-type": "application/json; charset=UTF-8"
@@ -26,6 +36,7 @@ function GateMaintenance() {
           gate_status: status
         })
     })
+    .then(res => fetchInventory())
 
   }
   return (
@@ -60,7 +71,7 @@ function GateMaintenance() {
             <Link to="/airport">Back</Link>
         </Button>
             </Form> 
-            <GateStatusTable/>
+            <GateStatusTable data={data}/>
     </div>
 
 

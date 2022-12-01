@@ -2,19 +2,21 @@
 
 import React, { Component,useState } from 'react';
 import { Redirect,useParams, useNavigate } from 'react-router-dom';
-import { Form, Button } from 'react-bootstrap';
+import { Form, Button, Alert } from 'react-bootstrap';
 import axios from "axios";
+
 
 export default function Login(props) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [redirect, setRedirect] = useState(false);
   const [type,setType] = useState(null);
+  const [authFailed, setAuthFailed] = useState(false);
 
   const navigate = useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch('http://localhost:5001/login', {
+    fetch(`${process.env.REACT_APP_BASE_URL}/login`, {
         method: 'POST',
         headers: {
             "Content-type": "application/json; charset=UTF-8"
@@ -24,11 +26,20 @@ export default function Login(props) {
             password: password
         })
     })
-    .then(res => res.json())
+    .then(res => {
+            console.log(res)
+            if(res.status === 401){
+                setAuthFailed(true);
+                // throw new Error('Unauthorized');
+            }
+        return res.json();
+        }
+
+    )
     .then(data => {
-        console.log(data);
-        console.log(data.airline_name);
-        
+       
+       
+        console.log(data.usertype)
         if(data.usertype){
             //print user type
             // navigate("/register", { replace: true });    
@@ -47,28 +58,11 @@ export default function Login(props) {
                     navigate(path, { replace: true });
                     break;               
             }
-
+            localStorage.setItem("token", data.token);
 
         }
     })
     .catch(err => console.log(err));
-
-    // const configuration = {
-    //     method: "post",
-    //     url: "http://localhost:5001/login",
-    //     data: {
-    //       email: username,
-    //       password,
-    //     },
-    //   };    
-
-    //   axios(configuration)
-    //   .then((result) => {
-    //     navigate("/register", { replace: true })
-    //   })
-    //   .catch((error) => {
-    //     error = new Error();
-    //   });
             
     }    
 
@@ -89,7 +83,9 @@ export default function Login(props) {
             <Button variant="primary" type="submit">
                 Submit
             </Button>
+            
             </Form> 
+            {authFailed && <Alert variant="danger">Invalid Credentials</Alert>}
     </div>
     )
 }

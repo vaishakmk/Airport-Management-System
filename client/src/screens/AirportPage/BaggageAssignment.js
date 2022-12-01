@@ -13,7 +13,7 @@ function BaggageAssignment() {
   const navigate = useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch('http://localhost:5001/airport_employee/arrival_fights', {
+    fetch(`${process.env.REACT_APP_BASE_URL}/airport_employee/arrival_fights`, {
         method: 'POST',
         headers: {
             "Content-type": "application/json; charset=UTF-8"

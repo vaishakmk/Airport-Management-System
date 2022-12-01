@@ -4,6 +4,11 @@ import "./DynamicTable.css";
 function DynamicTable({ inventory_api_url, update_inventory_url, airline_id }) {
     const [data, setData] = useState([]);
 
+    function convertTime(time) {
+        let hours = Math.floor(time / 60);
+        let minutes = time % 60;
+        return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}`;
+    }
     // GET request function to Flights table API
     const fetchInventory = () => {
         fetch(`${inventory_api_url}`)
@@ -22,6 +27,7 @@ function DynamicTable({ inventory_api_url, update_inventory_url, airline_id }) {
          * only those operated by the airline that the current employee belongs to
         */
     }
+
 
     // Calling the function on component mount
     useEffect(() => {
@@ -142,7 +148,7 @@ function DynamicTable({ inventory_api_url, update_inventory_url, airline_id }) {
                                                 onChange={(event) => setFlightTime(event.target.value)}
                                             />
                                         ) : (
-                                                item.flighttime
+                                            convertTime(item.flighttime)
                                         )
                                     }
                                 </td>
@@ -174,7 +180,7 @@ function DynamicTable({ inventory_api_url, update_inventory_url, airline_id }) {
                                                 className={"btn-primary"}
                                                     onClick={() => onEdit({
                                                         id: item._id,
-                                                        currentTime: item.flighttime
+                                                        currentTime: convertTime(item.flighttime)
                                                     })}
                                             >
                                                 Edit

@@ -17,7 +17,7 @@ exports.set_gates = (req,res) =>{
     .then(this_gate => {
         
         if(this_gate.status==='Occupied'){
-            res.status(409).json({"message":"This gate is currently Occupied"});
+            res.status(409).json({error:"This gate is currently Occupied"});
             return;
         }
         else{
@@ -39,7 +39,7 @@ exports.get_flights = (req,res)=> {
         res.json(flights);
         return;
     })
-    .catch(err => res.status(400).json('Error: ' + err));
+    .catch(err => res.status(400).json({error :err}));
     return;
 };
 
@@ -59,7 +59,7 @@ exports.set_baggage = (req,res) => {
                         this_flight.baggage = req.body.baggage;
                         this_flight.save()
                         .then(() => res.json('Baggage Assigned Successfully'))
-                        .catch(err => res.status(400).json({'Some Error':err}));
+                        .catch(err => res.status(400).json({error:err}));
                         return;
                     }else{
                         res.status(409).json({error:'This Flight has already been assigned a baggage counter'});
@@ -67,11 +67,11 @@ exports.set_baggage = (req,res) => {
                     }
                    
                 }else{
-                    res.status(400).json({'Error':'Please re-enter the correct flight information'});
+                    res.status(400).json({error:'Please re-enter the correct flight information'});
                 }
                 return; 
             })
-            .catch(err => res.status(400).json({'Error': err}));
+            .catch(err => res.status(400).json({error: err}));
             return;
 
         }

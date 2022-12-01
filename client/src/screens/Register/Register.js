@@ -31,7 +31,7 @@ export default function Register() {
         setPassword(value);
       }
       if(id === "type"){
-        console.log("🚀 ~ file: Register.js ~ line 32 ~ handleInputChange ~ value", value)
+        // console.log("🚀 ~ file: Register.js ~ line 32 ~ handleInputChange ~ value", value)
 
           setType(value);
                 }

@@ -1,19 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import "./GateStatusTable.css";
 
-function BaggageTable({ inventory_api_url }) {
-    const [data, setData] = useState([]);
+function BaggageTable({ data }) {
+    // const [data, setData] = useState([]);
 
-    const fetchInventory = () => {
-        fetch("http://localhost:5001/airport_employee/gates")
-            .then(res => res.json())
-            .then(json => setData(json));
+    // const fetchInventory = () => {
+    //     fetch(`${inventory_api_url}`)
+    //         .then(res => res.json())
+    //         .then(json => setData(json));
 
-    }
+    // }
 
-    useEffect(() => {
-        fetchInventory();
-    }, []);
+    // useEffect(() => {
+    //     fetchInventory();
+    // }, []);
 
     return (
         <div className="table-wrapper">

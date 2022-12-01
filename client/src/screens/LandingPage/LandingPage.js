@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import "./LandingPage.css";
 
 const LandingPage = () => {
+    React.useEffect(() => localStorage.clear());
   return (
     <div className="main">
         <Container>

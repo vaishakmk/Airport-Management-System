@@ -39,12 +39,12 @@ const AirlinePage = () => {
 
                 </div>
               </Row>
-              <FlightForm inventory_api_url="http://localhost:5001/airline_employee/add_flights"
+              <FlightForm inventory_api_url={`${process.env.REACT_APP_BASE_URL}/airline_employee/add_flights`}
                           airline_name={airline_id}
               />
               <DynamicTable
-                  inventory_api_url={"http://localhost:5001/flights"}
-                  update_inventory_url={"http://localhost:5001/airline_employee/update_flights"}
+                  inventory_api_url={`${process.env.REACT_APP_BASE_URL}/flights`}
+                  update_inventory_url={`${process.env.REACT_APP_BASE_URL}/airline_employee/update_flights`}
                   airline_id={airline_id}
               />
         </Container>

@@ -79,7 +79,9 @@ exports.add_flights = (req, res) => {
         }else{
             res.status(400).json({
                 error : 'You cannot change the schedule within 30mins of take-off'
+                
             });
+            
             return;
         }
 

@@ -1,11 +1,18 @@
 import React, { useEffect, useState } from 'react';
+
 import "./BaggageTable.css";
 
 function BaggageTable({ inventory_api_url }) {
     const [data, setData] = useState([]);
 
+    function convertTime(time) {
+        let hours = Math.floor(time / 60);
+        let minutes = time % 60;
+        return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}`;
+    }
+
     const fetchInventory = () => {
-        fetch("http://localhost:5001/airport_employee/arrival_fights")
+        fetch(`${process.env.BASE_URL}/airport_employee/arrival_fights`)
             .then(res => res.json())
             .then(json => setData(json));
 
@@ -44,7 +51,7 @@ function BaggageTable({ inventory_api_url }) {
                                 <td>{item.destination}</td>
                                 
                                 <td>{item.gate}</td>
-                                <td>{item.flighttime}</td>
+                                <td>{convertTime(item.flighttime)}</td>
                                 <td>{item.baggage}</td>
                                 <td>{item.terminal}</td>
                             </tr>

@@ -10,7 +10,7 @@ import './airport.css';
 export default function AirportPage() {
     const assignRandomGate = (e) => {
         e.preventDefault();
-        fetch('http://localhost:5001/gates/random_assignment', {
+        fetch(`${process.env.REACT_APP_BASE_URL}/gates/random_assignment`, {
             method: 'POST'
         })
         .then(res => res.json())
@@ -19,7 +19,7 @@ export default function AirportPage() {
 
     const periodicUnassignment = (e) => {
         e.preventDefault();
-        fetch('http://localhost:5001/gates/periodic_unassignment', {
+        fetch(`${process.env.REACT_APP_BASE_URL}/gates/periodic_unassignment`, {
             method: 'POST'
         })
         .then(res => res.json())
@@ -63,9 +63,9 @@ export default function AirportPage() {
 
 
             </Row>
-            <StaticTable  inventory_api_url="http://localhost:5001/flights/next4hr" />
+            <StaticTable  inventory_api_url={`${process.env.REACT_APP_BASE_URL}/flights/next4hr`} />
             <h2>All flights</h2>
-            <StaticTable  inventory_api_url="http://localhost:5001/flights/" />
+            <StaticTable  inventory_api_url={`${process.env.REACT_APP_BASE_URL}/flights/`} />
         </Container>
         
     </div>

@@ -5,11 +5,11 @@ const Dashboard = () => {
   return (
     <div>
       <h2>Flights scheduled within 1 hour</h2>
-<StaticTable inventory_api_url="http://localhost:5001/flights/next1hr" />
+<StaticTable inventory_api_url= {`${process.env.REACT_APP_BASE_URL}/flights/next1hr`} />
 <h2>Flights scheduled within 2 hours</h2>
-    <StaticTable inventory_api_url="http://localhost:5001/flights/next2hr" />
+    <StaticTable inventory_api_url= {`${process.env.REACT_APP_BASE_URL}/flights/next2hr`} />
     <h2>Flights scheduled within 4 hours</h2>
-    <StaticTable inventory_api_url="http://localhost:5001/flights/next4hr" />
+    <StaticTable inventory_api_url= {`${process.env.REACT_APP_BASE_URL}/flights/next4hr`} />
     </div>
   )
 }
