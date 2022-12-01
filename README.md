@@ -29,6 +29,10 @@ https://docs.google.com/spreadsheets/d/1AxkQ2meuDWeRD4gkbFXwkRuPzay7Yd-g6rpFt1d4
 
 https://github.com/gopinathsjsu/team-project-gof/blob/main/Agile%20Documentation/XP%20Core%20values%20per%20Sprint.pdf
 
+#### Task Board:
+
+https://docs.google.com/spreadsheets/d/1GpGIGzS88WQOtMfDI9OVqi3wONEa7_-s7MEVtT2srz4/edit?usp=sharing
+
 #### How to run the web-app:
 * Step 1: Clone the app by command " git clone https://github.com/gopinathsjsu/team-project-gof"
 * Step 2: Go to the client directory and install node modules by command "npm i OR npm install"
