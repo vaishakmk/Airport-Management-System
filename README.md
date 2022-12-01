@@ -80,15 +80,20 @@ https://github.com/gopinathsjsu/team-project-gof/tree/main/Agile%20Documentation
 
 ## Diagrams
 
-#### 1. Architecture Diagram
+#### 1. Usecase Diagram
 
-<img width="1427" alt="Screen Shot 2022-11-30 at 9 38 56 PM" src="https://user-images.githubusercontent.com/99863530/204974555-fa0a4b78-e792-4758-ab60-39eced088ae6.png">
+<img width="1310" alt="image" src="https://user-images.githubusercontent.com/99863530/205178388-b652d517-fac1-4e9b-8d49-ddd993eb5499.png">
 
-#### 2. Database Diagram
+#### 2. Architecture Diagram
+
+<img width="1394" alt="image" src="https://user-images.githubusercontent.com/99863530/205178498-cdd19d11-cbc4-4b1a-b34c-0f2fd517371e.png">
+
+
+#### 3. Database Diagram
 
 <img width="1169" alt="Database Diagram" src="https://user-images.githubusercontent.com/99863530/204978478-78a5fc50-0d0c-4996-a1b8-3a7afc9348a2.png">
 
-#### 3. Deployment Diagram
+#### 4. Deployment Diagram
 
 <img width="845" alt="Deployment diagram (1)" src="https://user-images.githubusercontent.com/99863530/204978564-e4b20437-65c2-4fe4-8f2e-5173d5285e95.png">
 
