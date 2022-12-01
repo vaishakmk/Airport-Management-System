@@ -23,6 +23,8 @@ https://github.com/gopinathsjsu/team-project-gof
 #### Sprint Task Sheet:
 https://docs.google.com/spreadsheets/d/1AxkQ2meuDWeRD4gkbFXwkRuPzay7Yd-g6rpFt1d4OjM/edit?usp=sharing
 
+<img width="1427" alt="Screen Shot 2022-11-30 at 9 38 56 PM" src="Agile Documentation/Burndown chart.png">
+
 #### XP Core Values :
 
 Weekly Status update meetings.
