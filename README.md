@@ -97,3 +97,8 @@ https://github.com/gopinathsjsu/team-project-gof/tree/main/Agile%20Documentation
 
 <img width="845" alt="Deployment diagram (1)" src="https://user-images.githubusercontent.com/99863530/204978564-e4b20437-65c2-4fe4-8f2e-5173d5285e95.png">
 
+## Deployment Screenshots
+
+<img width="1430" alt="image" src="https://user-images.githubusercontent.com/99863530/205232147-b3d2558e-37e3-492a-93db-574bae4f4724.png">
+
+
