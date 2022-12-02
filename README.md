@@ -71,6 +71,13 @@ https://github.com/gopinathsjsu/team-project-gof/tree/main/Agile%20Documentation
 8. Airport employees can enable or disable gate assignments for maintenance.
 9. Airport employees can assign Baggage Carousel number to Arriving flights without conflicts.
 
+## General API concensus
+1. The code is structured such that it will have service, controllers and routes.
+2. Every entity like gate, flight, terminal will have these three componenets. 
+3. Controllers react with front end and are responsible for calling services
+4. Routes directs control to specific controllers
+5. Service will handle the business logic and talk to Database.
+
 
 #### Design Decisions:
 1. We wanted to opt for a simple and minimalistic design for UI to focus on the functionality.
