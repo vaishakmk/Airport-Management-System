@@ -63,7 +63,7 @@ function DynamicTable({ inventory_api_url, update_inventory_url, airline_id }) {
      * @param id
      * @param newTime
      */
-    const updateInventory = ({ id, newTime }) => {
+     const updateInventory = ({ id, newTime }) => {
         fetch(
             `${update_inventory_url}/${id}`
             , {
@@ -74,8 +74,11 @@ function DynamicTable({ inventory_api_url, update_inventory_url, airline_id }) {
             headers: {
                 "Content-type": "application/json; charset=UTF-8"
             }
-        })
-            .then(response => response.json())
+            })
+            .then((response) => {
+                if (!response.ok) alert("You cannot change the schedule within 30mins of take-off");
+                else return response.json();
+            })
             .then(json => {
                 // reset inEditMode and time state values
                 onCancel();
