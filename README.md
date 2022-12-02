@@ -101,4 +101,9 @@ https://github.com/gopinathsjsu/team-project-gof/tree/main/Agile%20Documentation
 
 <img width="1430" alt="image" src="https://user-images.githubusercontent.com/99863530/205232147-b3d2558e-37e3-492a-93db-574bae4f4724.png">
 
+<img width="1396" alt="image" src="https://user-images.githubusercontent.com/99863530/205233344-a448c1a1-173a-4049-a3ff-3bde466c2559.png">
+
+<img width="658" alt="image" src="https://user-images.githubusercontent.com/99863530/205233523-20aadfc4-6411-4d47-96f7-0343c2992e35.png">
+
+
 
