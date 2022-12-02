@@ -41,7 +41,7 @@ export default function Register() {
   const handleSubmit  = (e) => {
     e.preventDefault();
       
-      fetch(`http://localhost:5001/signup`, {
+      fetch(`${process.env.REACT_APP_BASE_URL}/signup`, {
           method: "POST",
           body: JSON.stringify({
               empname: name,
